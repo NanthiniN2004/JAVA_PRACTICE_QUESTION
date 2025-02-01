@@ -128,5 +128,151 @@ After Reverse Element
 
 ````java[]
 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+		
+		System.out.println("Duplicate value");
+	 for(int i=0;i<n;i++){
+	     for(int j=i+1;j<n;j++){
+	     if(a[i]==a[j]){
+	         System.out.println(a[j]);
+	}
+}
+}
+	     }
+	 }
+
+output:
+
+Enter the size of the array
+9
+Enter the Elements
+1
+2
+3
+4
+2
+7
+8
+8
+1
+Duplicate value
+1
+2
+8
+
+````
+
+## 5) FIND THE KTH LARGEST ELEMENT
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+        int k=s.nextInt();
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(a[i]<a[j]){
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+            }
+        }
+        System.out.println("After Swapping");
+        for(int i=0;i<n;i++){
+            System.out.print(a[i]+" ");
+        }
+        System.out.println(k+"th Largest Element"+a[k-1]);
+	     }
+	 }
 
 
+OUTPUT:
+
+Enter the size of the array
+8
+Enter the Elements
+51
+55
+71
+77
+
+115
+35
+37
+99
+3
+After Swapping
+115 99 77 71 55 51 37 35
+3th Largest Element77
+
+````
+
+## 6) CHECK IF A GIVEN NUMBER IS PRESENT IN ARRAY
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+        System.out.println("Enter the number you want to check");
+        int k=s.nextInt();
+        boolean found=false;
+        for(int i=0;i<n;i++){
+            if(a[i]==k){
+                found=true;
+            }
+        }
+        if(found==true){
+            System.out.println("Element is found");
+        }
+        else{
+            System.out.println("Element is not found");
+        }
+	     }
+	 }
+
+OUTPUT:
+
+Enter the size of the array
+4
+Enter the Elements
+7
+1
+4
+9
+Enter the number you want to check
+2
+Element is not found
+
+
+````
