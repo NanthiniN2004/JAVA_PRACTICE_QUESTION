@@ -449,5 +449,33 @@ Right Rotated Array: [4, 5, 1, 2, 3]
 
 ````
 
+## FIND THE FACTORIAL OF LARGEST NUMBER
+
+````java[]
+
+import java.util.*;
+import java.math.BigInteger;
+public class Main
+{
+    public static BigInteger fact(long n){
+        if(n==0 || n==1){
+            return BigInteger.ONE;
+        }
+        return BigInteger.valueOf(n).multiply(fact(n-1));
+    }
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		BigInteger result=fact(n);
+		System.out.println(result);
+	}
+}
+
+
+OUTPUT:
+
+100
+93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+
    
 
