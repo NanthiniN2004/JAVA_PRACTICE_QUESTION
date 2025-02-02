@@ -278,7 +278,7 @@ Element is not found
 ````
 
 
-## FIND THE UNIQUE VALUE
+## 7) FIND THE UNIQUE VALUE
 
 ````java[]
 
@@ -325,4 +325,58 @@ unique value
 1
 
 ````
+
+## 8) MOVE ALL THE ZEROS TO THE END OF AN ARRAY
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	  System.out.println("Enter the array size");
+	  int n=s.nextInt();
+	  int a[]=new int[n];
+	  System.out.println("Enter the array element");
+	  for(int j=0;j<n;j++){
+	      a[j]=s.nextInt();
+	  }
+	   int   i=0;
+	  for(int num:a){
+	   
+	      if(num==0){
+	          a[i]=num;
+	          i++;
+	      }
+	  }
+	  while(i<n){
+	      a[i]=0;
+	      i++;
+	  }
+	  System.out.println("After Move all Zero");
+	  for(int j=0;j<n;j++){
+	      System.out.print(a[j]+" ");
+	  }
+	}
+}
+
+
+output:
+
+Enter the array size
+5
+Enter the array element
+0
+1
+0
+12
+7
+After Move all Zero
+1 12 7 0 0
+
+````
+
+
+   
 
