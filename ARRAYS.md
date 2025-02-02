@@ -376,7 +376,78 @@ After Move all Zero
 1 12 7 0 0
 
 ````
+## 9) ROTATE AN ARRAY K POSITION(RIGHT AND LEFT SIDE)
 
+````java[]
+
+import java.util.*;
+class Solution{
+    public void leftrotate(int a[],int k,int n){
+        k%=n;
+        reverse(a,0,k-1);
+        reverse(a,k,n-1);
+        reverse(a,0,n-1);
+       
+    }
+     public void rightrotate(int a[],int k,int n){
+        k%=n;
+        reverse(a,0,n-1);
+        reverse(a,0,k-1);
+        reverse(a,k,n-1);
+        
+       
+    }
+    public void reverse(int a[],int start,int end){
+        while(start<end){
+            int temp=a[start];
+            a[start]=a[end];
+            a[end]=temp;
+            start++;
+            end--;
+        }
+    }
+}
+public class Main
+{    
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	  System.out.println("Enter the array size");
+	  int n=s.nextInt();
+	  int a[]=new int[n];
+	  System.out.println("Enter the array element");
+	  for(int j=0;j<n;j++){
+	      a[j]=s.nextInt();
+	  }
+	  System.out.println("Enter the k value");
+	  int k=s.nextInt();
+	   int[] b = Arrays.copyOf(a, n);
+	  System.out.println("After rotate");
+	  Solution s1=new Solution();
+	  s1.leftrotate(a,k,n);
+         System.out.println("left Rotated Array: " + Arrays.toString(a));
+        s1.rightrotate(b,k,n);
+        System.out.println("Right Rotated Array: " + Arrays.toString(b));
+	  }
+	}
+
+
+OUTPUT:
+
+Enter the array size
+5
+Enter the array element
+1
+2
+3
+4
+5
+Enter the k value
+2
+After rotate
+left Rotated Array: [3, 4, 5, 1, 2]
+Right Rotated Array: [4, 5, 1, 2, 3]
+
+````
 
    
 
