@@ -1,3 +1,4 @@
+
 ## 1)SUM OF ELEMENTS
 ```java[]
 
@@ -477,5 +478,56 @@ OUTPUT:
 100
 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
 
-   
+````
+
+
+ ## FIND THE MISSING NUMBER
+
+````java[]
+
+  import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  System.out.println("Enter the size of array");
+	  int size=s.nextInt();
+	  int a[]=new int[size];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<size;i++){
+	      a[i]=s.nextInt();
+	  }
+	  System.out.println("Enter the n value");
+	  int n=s.nextInt();
+	  int result=(n*(n+1))/2;
+	  int sum=0;
+	  for(int i=0;i<size;i++){
+	      sum+=a[i];
+	  }
+	  int missingnumber=result-sum;
+	  System.out.println("Missing number "+missingnumber);
+	}
+}
+
+output:
+
+Enter the size of array
+6
+Enter the array element
+4
+2
+7
+1
+5
+6
+Enter the n value
+7
+Missing number 3
+
+
+````
+
+
+
+
 
