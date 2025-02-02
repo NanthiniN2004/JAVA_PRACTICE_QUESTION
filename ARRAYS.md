@@ -450,7 +450,7 @@ Right Rotated Array: [4, 5, 1, 2, 3]
 
 ````
 
-## FIND THE FACTORIAL OF LARGEST NUMBER
+## 10) FIND THE FACTORIAL OF LARGEST NUMBER
 
 ````java[]
 
@@ -481,7 +481,7 @@ OUTPUT:
 ````
 
 
- ## FIND THE MISSING NUMBER
+ ## 11) FIND THE MISSING NUMBER
 
 ````java[]
 
@@ -524,8 +524,120 @@ Enter the n value
 7
 Missing number 3
 
+````
+
+## 12) MERGE TWO SORTED ARRAY	
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  System.out.println("Enter the size of the first array");
+	  int n1=s.nextInt();
+	  int a[]=new int[n1];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n1;i++){
+	      a[i]=s.nextInt();
+	  }
+	  System.out.println("Enter the size of the second array");
+	  int n2=s.nextInt();
+	  int b[]=new int[n2];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n2;i++){
+	      b[i]=s.nextInt();
+	  }
+	  int c[]=new int[n1+n2];
+	  for(int i=0;i<n1;i++){
+	      c[i]=a[i];
+	  }
+	  for(int i=0;i<n2;i++){
+	      c[i+n1]=b[i];
+	      
+	  }
+	  Arrays.sort(c);
+	  System.out.println("After Merged");
+	  System.out.println(Arrays.toString(c));
+	  
+	}
+}
+
+output:
+
+Enter the size of the first array
+3
+Enter the array element
+10
+20
+30
+Enter the size of the second array
+4
+Enter the array element
+5
+10
+15
+20
+After Merged
+[5, 10, 10, 15, 20, 20, 30]
 
 ````
+
+## 13) FIND THE OCCURENCE OF AN INTEGER AN ARRAY
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  System.out.println("Enter the size of the  array");
+	  int n1=s.nextInt();
+	  int a[]=new int[n1];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n1;i++){
+	      a[i]=s.nextInt();
+	  }
+       System.out.println("Enter the target value");
+       int target=s.nextInt();
+       
+       int count=0;
+       for(int i=0;i<n1;i++){
+           if(a[i]==target){
+               count++;
+           }
+       }
+       System.out.println("occurence of "+target+": "+ count);
+	  
+	}
+}
+
+
+OUTPUT:
+
+Enter the size of the  array
+7
+Enter the array element
+1
+2
+3
+2
+4
+2
+5
+Enter the target value
+2
+occurence of 2: 3
+
+````
+
+## 14) FIND THE MAJORITY ELEMENT IN AN ARRAY(ELEMENT APPEAR MORE THAN N/2 TIMES)
+
+````java[]
+
+
 
 
 
