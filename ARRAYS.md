@@ -682,9 +682,140 @@ occurence of 2: 3
 
 ````
 
-## 14) FIND THE MAJORITY ELEMENT IN AN ARRAY(ELEMENT APPEAR MORE THAN N/2 TIMES)
+## 14) INTERSECTION OF TWO ARRAY
 
 ````java[]
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  ArrayList<Integer>  result=new ArrayList<>();
+	  System.out.println("Enter the size of the first array");
+	  int n1=s.nextInt();
+	  int a[]=new int[n1];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n1;i++){
+	      a[i]=s.nextInt();
+	  }
+	  System.out.println("Enter the size of the second array");
+	  int n2=s.nextInt();
+	  int b[]=new int[n2];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n2;i++){
+	      b[i]=s.nextInt();
+	  }
+      int i=0,j=0;
+      System.out.println("After Intersection operation");
+      while(i<n1 && j<n2){
+          if(a[i]==b[j]){
+              result.add(a[i]);
+              i++;
+              j++;
+          }
+          else if(a[i]<b[j]){
+             i++;
+          }
+          else{
+                j++;
+          }
+      }
+      
+     
+	  System.out.println(result);
+	  
+	}
+}
+
+
+output:
+
+Enter the size of the first array
+5
+Enter the array element
+1
+2
+3
+4
+5
+Enter the size of the second array
+5
+Enter the array element
+3
+4
+5
+6
+7
+After Intersection operation
+[3, 4, 5]
+
+
+````
+
+## 15) UNION OF TWO ARRAY
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  HashSet <Integer>  result=new HashSet<>();
+	  System.out.println("Enter the size of the first array");
+	  int n1=s.nextInt();
+	  int a[]=new int[n1];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n1;i++){
+	      a[i]=s.nextInt();
+	  }
+	  System.out.println("Enter the size of the second array");
+	  int n2=s.nextInt();
+	  int b[]=new int[n2];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n2;i++){
+	      b[i]=s.nextInt();
+	  }
+	  
+	  
+	  for(int num:a){
+	      result.add(num);
+	  }
+	  for( int num:b){
+	      result.add(num);
+	  }
+	  System.out.println("UNION OF TWO ARRAY " +result);
+	  
+	}
+}
+
+
+output:
+
+Enter the size of the first array
+3
+Enter the array element
+2
+3
+4
+Enter the size of the second array
+3
+Enter the array element
+4
+5
+6
+UNION OF TWO ARRAY [2, 3, 4, 5, 6]
+
+````
+
+## FIND THE KTH SMALLEST ELEMENT IN AN ARRAY
+
+````java[]
+
+
+
 
 
 
