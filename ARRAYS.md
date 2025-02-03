@@ -871,6 +871,63 @@ After Sorting
 
 
 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+		System.out.println("Enter the target number");
+		int target=s.nextInt();
+       int left=0;
+       int right=n-1;
+       boolean found=false;
+       while(left<=right){
+           int sum=a[left]+a[right];
+           if(sum==target){
+               System.out.println("pair of element"+"("+a[left]+","+a[right]+")");
+               found=true;
+               left++;
+               right--;
+           }
+           else if(sum<target){
+               left++;
+           }
+           else{
+               right--;
+           }
+           
+       }
+       if(!found){
+           System.out.println("Not found");
+       }
+	     }
+	 }
+
+OUTPUT:
+
+Enter the size of the array
+5
+Enter the Elements
+2
+3
+5
+9
+11
+Enter the target number
+8
+pair of element(3,5)
+
+
+````
+
+
 
 
 
