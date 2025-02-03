@@ -564,6 +564,55 @@ public class Main
 	}
 }
 
+
+SECOND METHOD:
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner s=new Scanner(System.in);
+	  System.out.println("Enter the size of the first array");
+	  int n1=s.nextInt();
+	  int a[]=new int[n1];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n1;i++){
+	      a[i]=s.nextInt();
+	  }
+	  System.out.println("Enter the size of the second array");
+	  int n2=s.nextInt();
+	  int b[]=new int[n2];
+	  System.out.println("Enter the array element");
+	  for(int i=0;i<n2;i++){
+	      b[i]=s.nextInt();
+	  }
+      int i=0,j=0;
+      System.out.println("After union operation");
+      while(i<n1 && j<n2){
+          if(a[i]<b[j]){
+              System.out.println(a[i++]+" ");
+          }
+          else if(a[i]>b[j]){
+              System.out.println(b[j++]+" ");
+          }
+          else{
+                System.out.println(a[i++]+" ");
+                j++;
+          }
+      }
+      
+      while(i<n1){
+           System.out.println(a[i++]+" ");
+      }
+      while(j<n2){
+               System.out.println(b[j++]+" ");
+      }
+	  
+	  
+	}
+}
+
+
 output:
 
 Enter the size of the first array
