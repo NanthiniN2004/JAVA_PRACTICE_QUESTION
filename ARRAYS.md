@@ -865,7 +865,7 @@ After Sorting
 
 ````
 
-## 17) FIND THE PAIR WITH THE GIVEN SUM
+## 17) FIND THE ALL PAIR IN AN ARRAY THAT SUM UP TO A SPECIFIC VALUE
 
 ````JAVA[]
 
@@ -913,21 +913,86 @@ public class Main
 OUTPUT:
 
 Enter the size of the array
-5
+6
 Enter the Elements
-2
-3
-5
-9
-11
-Enter the target number
+1
+4
+6
 8
-pair of element(3,5)
+10
+12
+Enter the target number
+14
+pair of element(4,10)
+pair of element(6,8)
+
 
 
 ````
 
+## 18) FIND THE PAIR WITH THE GIVEN SUM
 
+````JAVA[]
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+		System.out.println("Enter the target number");
+		int target=s.nextInt();
+       int left=0;
+       int right=n-1;
+       boolean found=false;
+       while(left<=right){
+           int sum=a[left]+a[right];
+           if(sum==target){
+               System.out.println("pair of element"+"("+a[left]+","+a[right]+")");
+               return;
+           }
+           else if(sum<target){
+               left++;
+           }
+           else{
+               right--;
+           }
+           
+       }
+           System.out.println("Not found");
+	     }
+	 }
+
+output:
+
+Enter the size of the array
+6
+Enter the Elements
+1
+4
+6
+8
+10
+12
+Enter the target number
+14
+pair of element(4,10)
+
+````
+
+
+
+
+
+    
 
 
 
