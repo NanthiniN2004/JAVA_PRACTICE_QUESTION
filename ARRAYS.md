@@ -988,6 +988,68 @@ pair of element(4,10)
 
 ````
 
+## 19) SUBARRAY WITH GIVEN SUM
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the array element");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+		System.out.println("Enter the target value");
+		int target=s.nextInt();
+		
+		int start=0;
+		int sum=0;
+		for(int end=0;end<n;end++){
+		    sum+=a[end];
+		
+		while(sum>target && start<=end){
+		    sum-=a[start];
+		    start++;
+		}
+		if(sum==target){
+		    System.out.println("subarray from index "+start+" to "+end);
+		    System.out.println("Subarray Element");
+		    for(int i=start;i<=end;i++){
+		        System.out.print(a[i]+" ");
+		    }
+		    return;
+		}
+		}
+		System.out.println("No subarray found");
+	}
+}
+
+
+OUTPUT:
+
+Enter the size of the array
+6
+Enter the array element
+1
+4
+20
+3
+10
+5
+Enter the target value
+33
+subarray from index 2 to 4
+Subarray Element
+20 3 10
+
+````
+
+
 
 
 
