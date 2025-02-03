@@ -810,15 +810,62 @@ UNION OF TWO ARRAY [2, 3, 4, 5, 6]
 
 ````
 
-## FIND THE KTH SMALLEST ELEMENT IN AN ARRAY
+## 16) FIND THE KTH SMALLEST ELEMENT IN AN ARRAY
 
 ````java[]
 
 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+        int k=s.nextInt();
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(a[i]<a[j]){
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+            }
+        }
+        System.out.println("After Sorting");
+        for(int i=0;i<n;i++){
+            System.out.print(a[i]+" ");
+        }
+        System.out.println(k+"th Smallest Element"+a[n-k]);
+
+ }
+	 }
 
 
+OUTPUT:
 
 
+Enter the size of the array
+5
+Enter the Elements
+9
+2
+6
+8
+1
+3
+After Sorting
+9 8 6 2 1
+3th Smallest Element6
+
+````
+
+## 
 
 
 
