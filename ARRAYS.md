@@ -1,5 +1,5 @@
 
-## 1)SUM OF ELEMENTS
+## 1) SUM OF ELEMENTS
 ```java[]
 
 import java.util.*;
@@ -26,7 +26,7 @@ public class Main
 
 output
 
-Enter the size\ of the array
+Enter the size of the array
 5
 Enter the Elements
 8
@@ -38,7 +38,7 @@ Sum of the element 25
 
 ````
 
-##  2)FIND MINIMUM AND MAXIMUM ELEMENT IN ARRAY
+##  2) FIND MINIMUM AND MAXIMUM ELEMENT IN ARRAY
 
 ````java[]
 import java.util.*;
@@ -1048,46 +1048,58 @@ Subarray Element
 20 3 10
 
 ````
+## MOVE ALL NAGATIVE NUMBERS TO ONE SIDE OF THE ARRAY
 
+````java[]
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-
+        
         System.out.println("Enter the array size:");
         int n = s.nextInt();
+        
         int a[] = new int[n];
-
         System.out.println("Enter the array elements:");
         for (int j = 0; j < n; j++) {
             a[j] = s.nextInt();
         }
-
-        int i = 0;
-
-            for(int j=0;j<n;j++){
-            if (a[j] >= 0) { 
-                a[i] = a[j];
-                i++;
-            }
+        
+        int i=0;
+        for(int j=0;j<n;j++){
+            if(a[j]>0){
+           int temp=a[j];
+           a[j]=a[i];
+           a[i]=temp;
+           i++;
         }
-
-        // Move negative numbers
-        for (int j=0;j<n;j++) {
-            if (a[j] < 0) {
-                a[i] = a[j];
-                i++;
-            }
         }
 
         System.out.println("After moving all negative numbers to the end:");
-        for (int num : a) {
-            System.out.print(num + " ");
+        for (int j = 0; j < n; j++) {
+            System.out.print(a[j] + " ");
         }
     }
 }
+
+OUTPUT:
+
+Enter the array size:
+5
+Enter the array elements:
+7
+-1
+5
+-2
+-3
+After moving all negative numbers to the end:
+7 5 -1 -2 -3
+
+````
+
+## 
 
 
 
