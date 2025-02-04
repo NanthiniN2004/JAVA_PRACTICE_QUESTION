@@ -1050,6 +1050,44 @@ Subarray Element
 ````
 
 
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Enter the array size:");
+        int n = s.nextInt();
+        int a[] = new int[n];
+
+        System.out.println("Enter the array elements:");
+        for (int j = 0; j < n; j++) {
+            a[j] = s.nextInt();
+        }
+
+        int i = 0;
+
+            for(int j=0;j<n;j++){
+            if (a[j] >= 0) { 
+                a[i] = a[j];
+                i++;
+            }
+        }
+
+        // Move negative numbers
+        for (int j=0;j<n;j++) {
+            if (a[j] < 0) {
+                a[i] = a[j];
+                i++;
+            }
+        }
+
+        System.out.println("After moving all negative numbers to the end:");
+        for (int num : a) {
+            System.out.print(num + " ");
+        }
+    }
+}
 
 
 
