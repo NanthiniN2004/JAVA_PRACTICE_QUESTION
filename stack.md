@@ -90,117 +90,174 @@ before Delete the element
 
 ````
 
-## 
+## TWO STACK IN ONE ARRAY
 
 ````java[]
 
+
+
 import java.util.*;
-class Stack{
-    int top1;
-    int top2;
-    int size;
+
+class Stack {
+    int top1, top2, size;
     int[] a;
-   public  Stack(int size){
-     top1=-1;
-     top2=size;
-    a=new int[size];
+
+
+    public Stack(int size) {
+        this.size = size;
+        top1 = -1;     
+        top2 = size;    
+        a = new int[size];
     }
-    public void push1(int data){
-    if(top1<top2-1){
-    top1++;
-    a[top1]=data;
-    }
-    else{
-    System.out.println("Stack full");
-    }
-    }
-     
-     public void push2(int data){
-    if(top1<top2-1){
-    top2--;
-    a[top2]=data;
-    }
-    else{
-    System.out.println("Stack full");
-    }
-    }
-    public int pop1(){
-        if(top1>=0){
-           return  a[top1--];
-        }
-        else{
-        System.out.println("stack empty");
-        return -1;
-    }
-    }
-    public int pop2(){
-        if(top2 < size){
-            return a[top2++];
-        }
-        else{
-        System.out.println("stack empty");
-        return -1;
-    }
-    }
-    public void peek(){
-        if(top1==-1){
-            System.out.println("stack empty");
-        }
-        else{
-            System.out.println(a[top1]);
+
+    public void push1(int data) {
+        if (top1 < top2 - 1) {
+            a[++top1] = data;
+        } else {
+            System.out.println("Stack 1 Overflow!");
         }
     }
+
    
-    public void display1(){
-        System.out.println("stack1");
-        for(int i=top1;i>=0;i--){
-            System.out.print(a[i]+" ");
+    public void push2(int data) {
+        if (top1 < top2 - 1) {
+            a[--top2] = data;
+        } else {
+            System.out.println("Stack 2 Overflow!");
         }
     }
-    
-      public void display2(){
-          System.out.println("stack2");
-        for(int i=top2;i<=size;i++){
-            System.out.print(a[i]+" ");
+
+
+    public int pop1() {
+        if (top1 >= 0) {
+            return a[top1--];
+        } else {
+            System.out.println("Stack 1 Underflow!");
+            return -1;
         }
     }
+
+    public int pop2() {
+        if (top2 < size) {  // FIXED: Check if top2 has moved
+            return a[top2++];
+        } else {
+            System.out.println("Stack 2 Underflow!");
+            return -1;
+        }
+    }
+
+  
+    public void peek(int stackNumber) {
+        if (stackNumber == 1) {
+            if (top1 == -1) {
+                System.out.println("Stack 1 is empty");
+            } else {
+                System.out.println("Top of Stack 1: " + a[top1]);
+            }
+        } else if (stackNumber == 2) {
+            if (top2 == size) {
+                System.out.println("Stack 2 is empty");
+            } else {
+                System.out.println("Top of Stack 2: " + a[top2]);
+            }
+        }
+    }
+
+    public void display1() {
+        System.out.println("Stack 1:");
+        for (int i = top1; i >= 0; i--) {
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
+    }
+
     
+    public void display2() {
+        System.out.println("Stack 2:");
+        for (int i = top2; i < size; i++) {  
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
+    }
 }
 
-public class Main{
-    public static void main(String args[]){
-        Scanner s=new Scanner(System.in);
-        System.out.println("Enter the size of the stack");
-        int size=s.nextInt();
-        System.out.println("Enter the element you want to push in first stack");
-        int n1=s.nextInt();
-        System.out.println("Enter the element you want to push in Second stack");
-        int n2=s.nextInt();
-        
-        Stack obj=new Stack(size);
-        System.out.println("Enter the element");
-        for(int i=0;i<n1;i++){
-            int val=s.nextInt();
-            obj.push1(val);
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter the size of the stack:");
+        int size = s.nextInt();
+
+        Stack obj = new Stack(size);
+
+
+        System.out.println("Enter the number of elements for Stack 1:");
+        int n1 = s.nextInt();
+        System.out.println("Enter elements for Stack 1:");
+        for (int i = 0; i < n1; i++) {
+            obj.push1(s.nextInt());
         }
-         System.out.println("Enter the element");
-        for(int i=0;i<n2;i++){
-            int val1=s.nextInt();
-            obj.push2(val1);
+
+        System.out.println("Enter the number of elements for Stack 2:");
+        int n2 = s.nextInt();
+        System.out.println("Enter elements for Stack 2:");
+        for (int i = 0; i < n2; i++) {
+            obj.push2(s.nextInt());
         }
+
         System.out.println("Before popping:");
         obj.display1();
         obj.display2();
 
+      
+        obj.peek(1);
+        obj.peek(2);
+
         System.out.println("Popping from Stack 1 → " + obj.pop1());
         System.out.println("Popping from Stack 2 → " + obj.pop2());
 
-
+     
         System.out.println("After popping:");
         obj.display1();
         obj.display2();
 
-        
-        
+        s.close();
     }
 }
+
+
+output:
+
+Enter the size of the stack:
+6
+Enter the number of elements for Stack 1:
+3
+Enter elements for Stack 1:
+1
+2
+3
+Enter the number of elements for Stack 2:
+3
+Enter elements for Stack 2:
+4
+5
+6
+Before popping:
+Stack 1:
+3 2 1 
+Stack 2:
+6 5 4 
+Top of Stack 1: 3
+Top of Stack 2: 6
+Popping from Stack 1 → 3
+Popping from Stack 2 → 6
+After popping:
+Stack 1:
+2 1 
+Stack 2:
+5 4 
+
+
+````
+
+
