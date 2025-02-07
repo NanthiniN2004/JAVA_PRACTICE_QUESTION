@@ -259,5 +259,126 @@ Stack 2:
 
 
 ````
+## SORT A STACK
+
+````java[]
+
+import java.util.*;
+
+class Stack {
+    private int maxSize;
+    private int[] arr;
+    private int top;
+
+
+    public Stack(int size) {
+        this.maxSize = size;
+        this.arr = new int[size];
+        this.top = -1;
+    }
+
+
+    public boolean isEmpty() {
+        return top == -1;
+    }
+
+    public boolean isFull() {
+        return top == maxSize - 1;
+    }
+
+
+    public void push(int value) {
+        if (!isFull()) {
+            arr[++top] = value;
+        } else {
+            System.out.println("Stack Overflow");
+        }
+    }
+
+
+    public int pop() {
+        if (!isEmpty()) {
+            return arr[top--];
+        } else {
+            System.out.println("Stack Underflow");
+            return -1;  
+        }
+    }
+
+    public int peek() {
+        return isEmpty() ? -1 : arr[top];
+    }
+    
+    public void sortstack(){
+        Stack temp=new Stack(maxSize);
+        while(!this.isEmpty()){
+            int temp1=this.pop();
+            while(!temp.isEmpty() && temp.peek()>temp1){
+                this.push(temp.pop());
+            }
+            temp.push(temp1);
+        }
+        while(!temp.isEmpty()){
+            this.push(temp.pop());
+        }
+        
+    }
+    public void display(){
+        for(int i=top;i>=0;i--){
+            System.out.println(arr[i]);
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the stack");
+		int size=s.nextInt();
+		Stack obj=new Stack(size);
+		System.out.println("Enter the element you want push");
+		for(int i=0;i<size;i++){
+		    int val=s.nextInt();
+		    obj.push(val);
+		}
+		System.out.println("Before sorting");
+		obj.display();
+		System.out.println("After sorting");
+		obj.sortstack();
+		obj.display();
+	}
+}
+
+
+OUTPUT:
+
+
+Enter the size of the stack
+6
+Enter the element you want push
+90
+70
+60
+80
+40
+50
+Before sorting
+50
+40
+80
+60
+70
+90
+After sorting
+40
+50
+60
+70
+80
+90
+
+````
+
+##  
 
 
