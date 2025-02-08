@@ -562,7 +562,7 @@ OUTPUT:
 
 ````
 
-## 18.Check whether a string is a palindrome.
+## 18.Check whether a string is a palindrome.  (or)  31.Check whether a string is a valid palindrome.
 
 ````java[]
 
@@ -676,7 +676,7 @@ Perfect Square
 
 ````
 
-## 21.Check whether a number is a prime number within a range  (OR)  23.Print all prime numbers in a range using nested loops.
+## 21.Check whether a number is a prime number within a range  (OR)  23.Print all prime numbers in a range using nested loops. (or) 35.Print prime numbers within a range using nested conditions.
 
 ````JAVA[]
 
@@ -983,6 +983,242 @@ Leap Year  between 2000 to 2050
 
 ````JAVA[]
 
+import java.util.*;
+public class Main
+{
+    public static int gcd(int n1,int n2)
+    {
+        while(n1!=n2){
+            if(n1>n2){
+                n1-=n2;
+            }
+            else{
+                n2-=n1;
+            }
+        }
+        return n1;
+    }
+    public static int lcm(int n1,int n2,int gcdvalue){
+        return Math.abs(n1*n2)/gcdvalue;
+    }
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the number");
+		int n1=s.nextInt();
+		int n2=s.nextInt();
+		System.out.println("gcd of " +n1+" and "+n2);
+		 int gcdvalue=gcd(n1,n2);
+		 System.out.println(gcdvalue);
+		System.out.println("lcm of " +n1+" and "+n2);
+		int lcmvalue=lcm(n1,n2,gcdvalue);
+	   System.out.println(lcmvalue);
+		
+	}
+}
+
+OUTPUT:
+
+Enter the number
+20
+30
+gcd of 20 and 30
+10
+lcm of 20 and 30
+60
+
+
+````
+
+## 30. Determine the type of a triangle based on its angles.
+
+````JAVA[]
+
+import java.util.*;
+public class Main {
+
+   
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the First Angle");
+        int n1=s.nextInt();
+        System.out.println("Enter the Second Angle");
+         int n2=s.nextInt();
+         System.out.println("Enter the Third Angle");
+          int n3=s.nextInt();
+          int sum=n1+n2+n3;
+         if(sum==180){
+        if(n1<90 && n2<90 && n3<90){
+            System.out.println(" Acute Triangle ");
+        }
+         else if (n1==90 || n2==90 || n3==90){
+            System.out.println(" Right Triangle ");
+        }
+        else{
+            System.out.println(" Obtuse Triangle ");
+        }
+         }
+         else{
+             System.out.println(" Invalid");
+         }
+    }
+    
+}
+
+OUTPUT:
+
+Enter the First Angle
+1000 
+Enter the Second Angle
+40
+Enter the Third Angle
+40
+ Obtuse Triangle 
+
+
+````
+
+## 32.Check if a number is divisible by 7 or 11.
+
+````jAVA[]
+
+import java.util.*;
+public class Main {
+
+   
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the value");
+        int n=s.nextInt();
+        if(n%7==0 && n%11==0){
+            System.out.println(n +" is Divisible by 7 and 11");
+        }
+         else{
+            System.out.println(n+" is not Divisible by 7 and 11");
+        }
+    }
+    
+}
+
+output:
+
+Enter the value
+77
+77 is Divisible by 7 and 11
+
+````
+
+##  33.Print multiplication tables for a given number using nested loops.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	int n=s.nextInt();
+
+		for(int i=1;i<=10;i++){
+		   		System.out.println(i+"*"+n+"="+(i*n));
+		
+		}
+
+	
+}
+}
+
+OUTPUT:
+
+8
+1*8=8
+2*8=16
+3*8=24
+4*8=32
+5*8=40
+6*8=48
+7*8=56
+8*8=64
+9*8=72
+10*8=80
+
+
+````
+
+## 34.Identify if an alphabet character is uppercase, lowercase, or non-alphabet.
+
+````JAVA[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	char ch=s.next().charAt(0);
+
+	if(ch>='A' && ch<='Z'){
+	    System.out.println("Given character is lower case");
+	}
+	else if(ch>='a' && ch<='z'){
+	    System.out.println("Given character is upper case");
+	}
+	else{
+	    System.out.println("Non alphabet");
+	}
+
+	
+}
+}
+
+OUTPUT:
+
+a
+Given character is upper case
+
+
+````
+
+## 35.Determine if a given number is a valid credit card number.
+
+````JAVA[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	    System.out.println("Enter the card number");
+	    long num=s.nextLong();
+	   long sum=0;
+	    boolean seconddigit=false;
+	    while(num>0){
+	        long digit=num%10;
+	        num/=10;
+	        if(seconddigit){
+	            digit=digit*2;
+	            if(digit>=10){
+	                digit-=9;
+	            }
+	            sum+=digit;
+	            seconddigit=!seconddigit;
+	        }
+	    }
+	    if(sum%10==0){
+	        System.out.println("valid card number");
+	    }
+	    else{
+	        System.out.println("not valid number");
+	    }
+	}
+}
+
+
+OUTPUT:
+
+Enter the card number
+4532015112830366
+valid card number
+
+````
 
 
 
