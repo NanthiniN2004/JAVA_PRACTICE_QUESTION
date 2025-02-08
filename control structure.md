@@ -650,5 +650,202 @@ both String is Anagram
 
 ````JAVA[]
 
+import java.util.*;
+import java.lang.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the value");
+        int n=s.nextInt();
+        int a=(int)Math.sqrt(n);
+        if((a*a)==n){
+            System.out.println("Perfect Square");
+        }
+        else{
+             System.out.println(" Not Perfect Square");
+        }
+    }
+}
+
+OUTPUT:
+
+Ënter the value
+64
+Perfect Square
+
+
+````
+
+## 21.Check whether a number is a prime number within a range  (OR)  23.Print all prime numbers in a range using nested loops.
+
+````JAVA[]
+
+import java.util.*;
+import java.lang.*;
+public class Main{
+    public static boolean isPrime(int n){
+            if(n==1){
+                return false;
+            }
+            for(int i=2;i<=n/2;i++){
+            if(n%i==0){
+                return false;
+            }
+            }
+            return true;
+        }
+        public static void range(int start,int end){
+            System.out.println(" Prime number between"+ start +"to"+end);
+            for(int i=start;i<end;i++){
+                if(isPrime(i)){
+                    System.out.print(i+" ");
+                }
+            }
+             System.out.println();
+
+            }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+        
+        
+    }
+}
+
+OUTPUT:
+
+Ënter the Range
+10
+50
+ Prime number between 10to50
+11 13 17 19 23 29 31 37 41 43 47 
+
+````
+
+##  22.Find the largest number among n numbers using a nested if-else.
+
+````java[]
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the value of n");
+		int n=s.nextInt();
+		System.out.println("Enter the element");
+		int max=s.nextInt();
+		for(int i=1;i<n;i++){
+		    int ele=s.nextInt();
+		    if(max<ele){
+		        max=ele;
+		    }
+		}
+		System.out.println(" Largest Element "+max);
+	}
+}
+
+
+OUTPUT:
+
+Enter the value of n
+7
+Enter the element
+51
+55
+71
+77
+63
+115
+101
+ Largest Element 115
+
+````
+
+## 24.Find all the divisors of a number.
+
+````JAVA[]
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the value of n");
+		int n=s.nextInt();
+		System.out.println("Divisor of a number");
+	   for(int i=1;i<=n;i++){
+	       if(n%i==0){
+	           System.out.print(i+" ");
+	       }
+	   }
+	}
+}
+
+
+OUTPUT:
+
+Enter the value of n
+28
+Divisor of a number
+1 2 4 7 14 28
+
+````
+
+## 25.Check if a number is a perfect number within a range.
+
+````JAVA[]
+
+import java.util.*;
+import java.lang.*;
+public class Main{
+    public static boolean isPerfect(int n){
+        int a=(int)Math.sqrt(n);
+        if((a*a)==n){
+            return true;
+        }
+        else{
+             return false;
+        }
+        }
+        public static void range(int start,int end){
+            System.out.println(" Perfect number between "+ start +" to " +end);
+            for(int i=start;i<end;i++){
+                if(isPerfect(i)){
+                    System.out.print(i+" ");
+                }
+            }
+             System.out.println();
+
+            }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+        
+        
+    }
+}
+
+
+OUTPUT:
+
+Ënter the Range
+10
+50
+ Perfect number between10to50
+16 25 36 49 
+
+
+````
+
+
 
 
