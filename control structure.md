@@ -1177,7 +1177,7 @@ Given character is upper case
 
 ````
 
-## 35.Determine if a given number is a valid credit card number.
+## 36.Determine if a given number is a valid credit card number.
 
 ````JAVA[]
 
@@ -1220,7 +1220,7 @@ valid card number
 
 ````
 
-##  36.Check if a given day is a weekend or weekday.
+##  37.Check if a given day is a weekend or weekday.
 
 ````java[]
 
@@ -1250,7 +1250,127 @@ wednesday
 Weekday
 
 ````
+##  38.Check if a given date is valid or invalid.
+````java[]
 
+import java.util.*;
+import java.time.LocalDate;
+public class Main
+{
+    
+    public static boolean valid(int date,int month,int year){
+        try{
+        LocalDate.of(year,month,date);
+        return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+	public static void main(String[] args) {
+	 Scanner s=new Scanner(System.in);
+	 System.out.println("Enter the year");
+	 int year=s.nextInt();
+	  System.out.println("Enter the month");
+	 int month=s.nextInt();
+	  System.out.println("Enter the date");
+	 int date=s.nextInt();
+	 
+	 if(valid(date,month,year)){
+	     System.out.println("valid date");
+	 }
+	 else{
+	     System.out.println(" Not valid date");
+	 }
+	 
+	}	
+}
+
+OUTPUT:
+
+Enter the year
+2025
+Enter the month
+2
+Enter the date
+9 29
+ Not valid date
+
+````
+
+## 39.Find the day of the week for a given date. 
+````java[]
+
+import java.util.*;
+import java.time.LocalDate;
+import java.time.DayOfWeek;
+public class Main
+{
+    
+
+	public static void main(String[] args) {
+	 Scanner s=new Scanner(System.in);
+	 System.out.println("Enter the year");
+	 int year=s.nextInt();
+	  System.out.println("Enter the month");
+	 int month=s.nextInt();
+	  System.out.println("Enter the date");
+	 int day=s.nextInt();
+	 
+	 try{
+	 LocalDate date=LocalDate.of(year,month,day);
+	 DayOfWeek week=date.getDayOfWeek();
+	 System.out.println(" day of the week "+week);
+	 }
+	 catch(Exception e){
+	     System.out.println("Invalid date");
+	 }
+	}	
+}
+
+
+OUTPUT:
+Enter the year
+2004
+Enter the month
+11
+Enter the date
+13
+ day of the week SATURDAY
+
+````
+
+## 40.Check for a specific pattern in a string using if-else. 
+
+````java[]
+
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the string");
+        String str=s.nextLine();
+        System.out.println("Enter the pattern");
+        String pat=s.nextLine();
+        if(str.contains(pat)){
+            System.out.println("pattern found");
+        }
+        else{
+            System.out.println("pattern Not found");
+        }
+    }
+}
+
+OUTPUT:
+
+Enter the string
+xyzabcdef
+Enter the pattern
+abc
+pattern found
+
+````
 
 
 
