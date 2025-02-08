@@ -422,8 +422,233 @@ Amstrong
 
 
 ````
+## 14.Calculate the factorial of a number using recursion.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+    public static int factorial(int n){
+		    	if(n==0 || n==1){
+		    	    return 1;
+		    	}
+		    	return n*factorial(n-1);
+		
+		}
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the value");
+		int n=s.nextInt();
+		int result=factorial(n);
+		System.out.println(n+ " factorial is "+result);
+	
+	}
+}
 
 
+output:
+
+Enter the value
+7
+7 factorial is 5040
+
+
+````
+
+## 15.Check whether a number is an automorphic number.
+
+````java[]
+
+
+import java.util.*;
+
+public class Main
+{
+	public static void main(String[] args) {
+     Scanner s=new Scanner(System.in);
+     int n=s.nextInt();
+     int sqr=n*n;
+     while(n>0){
+         if(n%10!=sqr%10){
+             System.out.println("Not Automorphic number");
+             break;
+         }
+         n/=10;
+         sqr/=10;
+     }
+     if(n==0){
+         System.out.println(" Automorphic number");
+     }
+	}
+}
+
+OUTPUT:
+
+25
+ Automorphic number
+
+
+````
+
+## 16.Find if a number is a Fibonacci number.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+      Scanner s=new Scanner(System.in);
+      System.out.println("Ënter the value of n");
+     int n=s.nextInt();
+         int a=0;
+         int b=1;
+         System.out.println(a);
+         System.out.println(b);
+		for(int i=0;i<=n;i++){
+		   	
+		   	int c=a+b;
+		   	a=b;
+            b=c;
+            
+		 System.out.print(c+" ");
+		}
+
+	}
+}
+
+
+OUTPUT:
+
+Ënter the value of n
+7
+0
+1
+1 2 3 5 8 13 21 34
+
+````
+
+## 17.Count the number of digits in a number.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+      Scanner s=new Scanner(System.in);
+      System.out.println("Ënter the value of n");
+     int n=s.nextInt();
+        int count=0;
+        while(n!=0){
+            int a=n%10;
+            count++;
+            n/=10;
+        }
+        System.out.println(" count of the digit "+count);
+
+	}
+}
+
+
+OUTPUT:
+
+
+Ënter the value of n
+69524
+ count of the digit 5
+
+
+````
+
+## 18.Check whether a string is a palindrome.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+      Scanner s=new Scanner(System.in);
+      System.out.println("Ënter the String");
+      String str=s.next();
+      String rev="";
+      for(int i=str.length()-1;i>=0;i--){
+          rev+=str.charAt(i);
+      }
+      
+      if(rev.equals(str)){
+      System.out.println("Palindrome");
+      }
+      else{
+          System.out.println("Not Palindrome");
+      }
+	}
+}
+
+
+OUTPUT:
+
+Ënter the String
+amma
+Palindrome
+
+````
+
+## 19.Check if a string is an anagram of another string
+
+````JAVA[]
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+      Scanner s=new Scanner(System.in);
+      System.out.println("Ënter the String");
+      String str1=s.next();
+      System.out.println("Ënter the string ");
+      String str2=s.next();
+      str1=str1.toLowerCase();
+      str2=str2.toLowerCase();
+      if(str1.length()!=str2.length())
+      {
+          System.out.println("both String not anagram");
+          
+      }
+      else{
+          char[] String1=str1.toCharArray();
+          char[] String2=str2.toCharArray();
+          
+          Arrays.sort(String1);
+          Arrays.sort(String2);
+          if(Arrays.equals(String1, String2)==true){
+              System.out.println("both String is Anagram");
+          }
+          else{
+              System.out.println("both String not anagram");
+          }
+      }
+	}
+}
+
+
+
+OUTPUT:
+
+Ënter the String
+brag    Grab
+Ënter the string 
+Brag
+
+both String is Anagram
+
+````
+
+##  20.Determine if a number is a perfect square.
+
+````JAVA[]
 
 
 
