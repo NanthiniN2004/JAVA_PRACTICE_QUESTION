@@ -1220,6 +1220,36 @@ valid card number
 
 ````
 
+##  36.Check if a given day is a weekend or weekday.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the day");
+		String day=s.next().toLowerCase();
+		if(day.equals("sunday") || day.equals("saturday")){
+		    System.out.println("Weekend");
+		}
+		else{
+		    System.out.println("Weekday");
+		}
+		
+	
+	}
+}
+
+
+OUTPUT:
+
+Enter the day
+wednesday
+Weekday
+
+````
 
 
 
