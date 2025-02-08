@@ -845,6 +845,146 @@ OUTPUT:
 
 
 ````
+## 26.Check whether an integer is positive, negative, or zero.
+
+````java[]
+
+import java.util.*;
+public class Main {
+
+   
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the value");
+        int n=s.nextInt();
+        if(n>0){
+            System.out.println(n +" is positive");
+        }
+        else if(n==0)
+        {
+                System.out.println(n+" is zero");
+        }
+         else{
+            System.out.println(n+" is negative");
+        }
+    }
+    
+}
+
+OUTPUT:
+
+Enter the value
+54
+54 is positive
+
+
+````
+
+## 27.Find whether a number is a Fibonacci number within a range.
+
+````JAVA[]
+
+import java.util.*;
+import java.lang.*;
+public class Main{
+    public static boolean fibnassi(int n){
+       if(n==0 || n==1){
+           return true;
+       }
+      int a=0,b=1,c=0;
+		while(c<n){
+		   	
+		    c=a+b;
+		   	a=b;
+            b=c;
+
+        }
+        return c==n;
+    }
+        public static void range(int start,int end){
+            System.out.println("Fibnassi number between "+ start +" to " +end);
+            for(int i=start;i<end;i++){
+                if(fibnassi(i)){
+                    System.out.print(i+" ");
+                }
+            }
+             System.out.println();
+
+            }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+        
+        
+    }
+}
+
+OUTPUT:
+
+Ënter the Range
+10
+50
+Fibnassi number between 10 to 50
+13 21 34 
+
+````
+
+##  28.Print all leap years within a given range.
+
+````JAVA[]
+
+import java.util.*;
+import java.lang.*;
+public class Main{
+    public static boolean leap(int n){
+        if(n%4 ==0 || (n%400==0 && (n%100 !=0))){
+	          return true;
+	     }
+	     else{
+	         return false;
+	     }
+    }
+        public static void range(int start,int end){
+            System.out.println("Leap Year  between "+ start +" to " +end);
+            for(int i=start;i<end;i++){
+                if(leap(i)){
+                    System.out.print(i+" ");
+                }
+            }
+             System.out.println();
+
+            }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+        
+        
+    }
+}
+
+OUTPUT:
+
+Ënter the Range
+2000
+2050
+Leap Year  between 2000 to 2050
+2000 2004 2008 2012 2016 2020 2024 2028 2032 2036 2040 2044 2048 
+
+
+````
+
+## 29.Find the GCD and LCM of two numbers.
+
+````JAVA[]
+
+
+
 
 
 
