@@ -427,3 +427,213 @@ Even number
 
 ````
 
+## 95.Find the sum of even and odd digits of a number. 
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+         System.out.println("Enter the start value");
+         int n=s.nextInt();
+         int sumodd=0;
+         int sumeven=0;
+         while(n!=0){
+             int a=n%10;
+             if(a%2!=0){
+                 sumodd+=a;
+             }
+             else{
+                 sumeven+=a;
+             }
+             n/=10;
+         }
+         System.out.println(" sum of the even digit "+sumeven);
+         System.out.println(" sum of the odd digit "+ sumodd);
+        
+	}
+}
+
+
+OUTPUT:
+
+Enter the start value
+96246105
+ sum of the even digit 18
+ sum of the odd digit 15
+
+
+````
+## 96.Find the factorial of a number using while loop. 
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+         System.out.println("Enter the value");
+         int n=s.nextInt();
+         int i=1;
+         int fact=1;
+         while(i<=n){
+            fact=fact*i;
+             i++;
+         }
+         System.out.println(" Factorial of number "+fact);
+         
+        
+	}
+}
+
+
+OUTPUT:
+
+Enter the value
+5
+ Factorial of number 120
+
+````
+## 97.Find the largest prime number in a given range.
+````JAVA[]
+
+import java.util.*;
+public class Main {
+         public static boolean isprime(int num){
+             if(num<2){
+                 return false;
+             }
+            int i=2;
+        while(i<=num/2){
+        if(num%i==0){
+            return false;
+        }
+        i++;
+   } 
+        return true;
+ }
+   
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the  start value");
+        int start=s.nextInt();
+        System.out.println("Enter the end value");
+        int end=s.nextInt();
+        int num=end;
+        int last=-1;
+        while(start<=num){
+            if(isprime(num)){
+              last=num;
+              break;
+            }
+            num--;
+        }
+        System.out.println("Largest prime number "+last);
+    }
+}
+        
+OUTPUT:
+
+Enter the  start value
+2
+Enter the end value
+20
+Largest prime number 19
+
+
+
+````
+## 98.Print all prime numbers up to n using a while loop. 
+
+````java[]
+import java.util.*;
+public class Main {
+         public static boolean isprime(int num){
+             if(num<2){
+                 return false;
+             }
+            int i=2;
+        while(i<=num/2){
+        if(num%i==0){
+            return false;
+        }
+        i++;
+   } 
+        return true;
+ }
+   
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the value");
+        int n=s.nextInt();
+        int num=2;
+        while(num<=n){
+            if(isprime(num)){
+                System.out.print(num+" ");
+            }
+            num++;
+        }
+    }
+}
+        
+        
+        
+
+OUTPUT:
+
+Enter the value
+20
+2 3 5 7 11 13 17 19 
+
+````
+
+## 99.Check if a number is prime using while loop. 
+
+````java[]
+
+import java.util.*;
+public class Main {
+
+   
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the value");
+        int n=s.nextInt();
+        int flag=0;
+        int i=2;
+        while(i<=n/2){
+        if(n%i==0){
+            flag=1;
+            break;
+        }
+        i++;
+        }
+        
+        if(flag==0){
+            System.out.println(n +" is prime number");
+        }
+        else{
+            System.out.println(n+" is not prime number");
+        }
+    }
+    }
+
+OUTPUT:
+
+Enter the value
+11
+11 is prime number
+
+
+````
+
+## 100.Implement a simple ATM menu using a while loop. 
+
+````java[]
+
+
+
+````
