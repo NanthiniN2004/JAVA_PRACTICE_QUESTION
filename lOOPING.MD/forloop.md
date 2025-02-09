@@ -138,7 +138,7 @@ Enter the value of n
 sum of the digit 89736 is: 33
 ````
 
-##  66.Print prime numbers up to a given number using for loop. 
+##  66.Print prime numbers up to a given number using for loop. (or) 74.Print all prime numbers between two numbers. 
 
 ````java[]
 
@@ -317,4 +317,103 @@ Sum of the odd number from 1 to 30:225
 ## 71.Find the largest number in an array using a for loop. 
 
 ````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the sizee of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+		int max=a[0];
+		for(int i=0;i<n;i++){
+		   if(max<a[i]){
+		       max=a[i];
+		   }
+		}
+		System.out.println("Maximum of the element "+max);
+	}
+}
+
+
+output
+
+Enter the sizee of the array
+5
+Enter the Elements
+77
+71
+51
+55
+63
+Maximum of the element 77
+````
+## 72.Print a series of squares (1, 4, 9, ...) using for loop. 
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	System.out.println("Enter the n value");
+	int n=s.nextInt();
+	System.out.println("square range of 1 to "+ n+" :");
+		for(int i=1;i<=n;i++){
+                     System.out.print((i*i)+" ");
+		
+		}	
+}
+}
+
+OUTPUT:
+
+Enter the n value
+10
+square range of 1 to 10 :
+1 4 9 16 25 36 49 64 81 100
+````
+##  73.Count the number of even numbers in a range. 
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	    System.out.println("Enter the start value of range");
+	    int start=s.nextInt();
+	    System.out.println("Enter the end value of range");
+	    int end=s.nextInt();
+	    int count=0;
+	    for(int i=start;i<=end;i++){
+	        if(i%2==0){
+	            count++;
+	        }
+	    }
+	    System.out.println("count of the even number from "+ start+" to " + end+ " :"+count);
+	}
+}
+
+OUTPUT:
+
+Enter the start value of range
+20
+Enter the end value of range
+100
+count of the even number from 20 to 100 :41
+
+````
+
+## 75. Find the sum of all elements in an array using a for loop
+
+````java[]
+
+
 
