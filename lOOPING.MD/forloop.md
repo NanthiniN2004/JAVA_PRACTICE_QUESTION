@@ -177,6 +177,36 @@ Reverse a digit 86427 is: 72468
 
 ````java[]
 
+import java.util.*;
+public class Main {
+
+   
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the value");
+        int n=s.nextInt();
+        int flag=0;
+        for(int i=2;i<=n/2;i++){
+        if(n%i==0){
+            flag=1;
+            break;
+        }
+        }
+        
+        if(flag==0){
+            System.out.println(n +" is prime number");
+        }
+        else{
+            System.out.println(n+" is not prime number");
+        }
+    }
+    }
+
+OUTPUT:
+
+Enter the value
+11
+11 is prime number
 
 ````
 
