@@ -288,3 +288,142 @@ Product of the digit 873 is: 168
 
 
 ````
+
+##  91.Find the greatest common divisor (GCD) using while loop.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the two value");
+		int n1=s.nextInt();
+		int n2=s.nextInt();
+		while(n1!=n2){
+            if(n1>n2){
+                n1-=n2;
+            }
+            else{
+                n2-=n1;
+            }
+        }
+        System.out.println("Gcd of numbers "+n1);
+	}
+}
+
+
+OUTPUT:
+
+Enter the two value
+20
+30
+Gcd of numbers 10
+
+````
+
+## 92. Reverse a string using while loop. 
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	System.out.println("Enter the String");
+	String str=s.nextLine();
+	String rev="";
+	int n=str.length()-1;
+	int i=n;
+	while(i>=0){
+	    rev+=str.charAt(i);
+	    i--;
+	}
+	System.out.println(rev);
+	}
+}
+
+
+OUTPUT:
+
+Enter the String
+Hello
+olleH
+
+
+````
+
+## 93. Sum all odd numbers in a range using while loop.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+         System.out.println("Enter the start value");
+         int start=s.nextInt();
+         System.out.println("Enter the end value");
+         int end=s.nextInt();
+         int sum=0;
+         int i=start;
+         while(i<=end){
+             if(i%2!=0){
+                 sum+=i;
+             }
+             i++;
+         }
+         System.out.println(" Sum all odd numbers in " +start+ " to " +end+ sum);
+	}
+}
+
+
+OUTPUT:
+
+Enter the start value
+1
+Enter the end value
+25
+Sum all odd numbers in 1 to 25 169
+
+````
+
+## 94.Print even numbers from a range using while loop. 
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+         System.out.println("Enter the start value");
+         int start=s.nextInt();
+         System.out.println("Enter the end value");
+         int end=s.nextInt();
+         int i=start;
+         System.out.println("Even number");
+         while(i<=end){
+             if(i%2==0){
+                 System.out.print(i+" ");
+             }
+             i++;
+         }
+	}
+}
+
+
+OUTPUT:
+
+Enter the start value
+2
+Enter the end value
+40
+Even number
+2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40
+
+````
+
