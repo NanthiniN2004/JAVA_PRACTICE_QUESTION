@@ -414,6 +414,210 @@ count of the even number from 20 to 100 :41
 ## 75. Find the sum of all elements in an array using a for loop
 
 ````java[]
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+		
+		int sum=0;
+		for(int i=0;i<n;i++){
+		    sum+=a[i];
+		}
+		System.out.println("Sum of the element "+sum);
+	}
+}
 
 
+output
 
+Enter the size of the array
+5
+Enter the Elements
+8
+2
+5
+1
+9
+Sum of the element 25
+
+````
+
+## 76.Calculate the average of an array using a for loop. 
+
+````java[]
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the Elements");
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+		
+		int sum=0;
+		for(int i=0;i<n;i++){
+		    sum+=a[i];
+		}
+		int avg=sum/n;
+		System.out.println("Average of the element "+avg);
+	}
+}
+
+
+OUTPUT:
+
+Enter the size of the array
+5
+Enter the Elements
+51
+55
+71
+77
+63
+Average of the element 63
+
+
+````
+
+## 77.Print a pyramid pattern using for loop.
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		for(int i=1;i<=n;i++){
+		     for(int k=1;k<=n-i;k++){
+		            System.out.print("  ");
+		        }
+		    for(int j=1;j<=(2*i)-1;j++){
+		    
+		            System.out.print(" *");
+		    }
+		    System.out.println();
+		}		
+	}
+}
+
+output:
+
+5
+         *
+       * * *
+     * * * * *
+   * * * * * * *
+ * * * * * * * * *
+
+
+````
+## 78.Print a reverse triangle pattern using for loop. 
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		for(int i=n;i>0;i--){
+		     for(int k=1;k<=n-i;k++){
+		            System.out.print("  ");
+		        }
+		    for(int j=1;j<=(2*i)-1;j++){
+		    
+		            System.out.print(" *");
+		    }
+		    System.out.println();
+		}		
+	}
+}
+
+OUTPUT:
+
+5
+ * * * * * * * * *
+   * * * * * * *
+     * * * * *
+       * * *
+         *
+
+````
+
+## 79.Print a number pattern using for loop. 
+
+````java[]
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+	for(int i=1;i<=n;i++){
+	    for(int j=1;j<=i;j++){
+	        System.out.print(j+" ");
+	    }
+	    System.out.println();
+	}
+		
+	}
+}
+
+output:
+5
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+
+````
+## 80.Print Pascal’s triangle using nested for loops.
+
+````java[]
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        int n=s.nextInt();
+        for(int i=1;i<=n;i++){
+            int val=1;
+            for(int j=1;j<=i;j++){
+                System.out.print(val+" ");
+                val=val*(i-j)/j;
+            }
+            System.out.println();
+        }
+    }
+}
+OUTPUT
+
+
+5
+1 
+1 1 
+1 2 1 
+1 3 3 1 
+1 4 6 4 1 
+
+
+````
