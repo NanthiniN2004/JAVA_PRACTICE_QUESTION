@@ -142,6 +142,50 @@ sum of the digit 89736 is: 33
 
 ````java[]
 
+
+import java.util.*;
+import java.lang.*;
+public class Main{
+    public static boolean isPrime(int n){
+            if(n==1){
+                return false;
+            }
+            for(int i=2;i<=n/2;i++){
+            if(n%i==0){
+                return false;
+            }
+            }
+            return true;
+        }
+        public static void range(int start,int end){
+            System.out.println(" Prime number between"+ start +"to"+end);
+            for(int i=start;i<end;i++){
+                if(isPrime(i)){
+                    System.out.print(i+" ");
+                }
+            }
+             System.out.println();
+
+            }
+    public static void main(String args[]){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Ënter the Range");
+        int start=s.nextInt();
+        int end=s.nextInt();
+        range(start,end);
+        
+        
+    }
+}
+
+OUTPUT:
+
+Ënter the Range
+10
+50
+ Prime number between 10to50
+11 13 17 19 23 29 31 37 41 43 47
+
 `````
 
 ## 67.Reverse a number using for loop. 
@@ -269,4 +313,8 @@ Sum of the odd number from 1 to 30:225
 
 
 ````
+
+## 71.Find the largest number in an array using a for loop. 
+
+````java[]
 
