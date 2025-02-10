@@ -196,7 +196,7 @@ output:
 
 
 ````
-126.Print a number triangle using nested loops.
+## 126.Print a number triangle using nested loops.
 
 ````java[]
 
@@ -227,7 +227,7 @@ output:
 
 ````
 
-127.Check for prime numbers within a range using nested loops.
+## 127.Check for prime numbers within a range using nested loops.
 
 ````java[]
 
