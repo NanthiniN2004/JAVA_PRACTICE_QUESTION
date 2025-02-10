@@ -66,7 +66,9 @@ output:
      *
 
 ````
+
 ## 123.Print a pyramid pattern using nested loops.
+
 ````java[]
 
 import java.util.*;
@@ -103,7 +105,9 @@ output:
  * * * * * * * * *
 
 ````
+
 ## 124.Print a diamond shape pattern using nested loops.
+
 ````java[]
 
 import java.util.*;
@@ -154,7 +158,9 @@ output:
      *
 
 ````
+
 ## 125.Print a hollow square pattern using nested loops.
+
 ````java[]
 
 import java.util.*;
@@ -188,6 +194,7 @@ output:
 *       * 
 * * * * *
 
+
 ````
 126.Print a number triangle using nested loops.
 
@@ -219,7 +226,9 @@ output:
 
 
 ````
+
 127.Check for prime numbers within a range using nested loops.
+
 ````java[]
 
 import java.util.*;
@@ -299,7 +308,9 @@ OUTPUT
 
 
 ````
+
 129.Print a number pattern with asterisks using nested loops.
+
 
 ````JAVA[]
 
@@ -330,14 +341,61 @@ output:
 
 ````
 
-130.Print all possible combinations of two arrays using nested loops
+## 130.Print all possible combinations of two arrays using nested loops
 
 ````JAVA[]
 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of element");
+		int n1=s.nextInt();
+		int[] a=new int[n1];
+		System.out.println("Enter the element");
+		for(int i=0; i<n1; i++) {
+			a[i]=s.nextInt();
+		}
+
+     System.out.println("Enter the size of element");
+		int n2=s.nextInt();
+		int[] b=new int[n1];
+		System.out.println("Enter the element");
+		for(int i=0;i<n2;i++){
+		    b[i]=s.nextInt();
+		}
+		System.out.println("Possible Combination");
+		for(int i=0;i<n1;i++){
+		    for(int j=0;j<n2;j++){
+		        System.out.println("("+ a[i] +"," + b[j]+")");
+		    }
+		}
+
+	}
+}
 
 
+OUTPUT:
 
-
+Enter the size of element
+3
+Enter the element
+1
+2
+3
+Enter the size of element
+2
+Enter the element
+4
+5
+Possible Combination
+(1,4)
+(1,5)
+(2,4)
+(2,5)
+(3,4)
+(3,5)
 
 
 ````
@@ -411,7 +469,7 @@ Transpose of the matrix
 ````
 
 
-132.Count the number of vowels and consonants in a string using nested loops.
+## 132.Count the number of vowels and consonants in a string using nested loops.
 
 ````JAVA[]
 
@@ -450,7 +508,7 @@ OUTPUT:
 
 
 ````
-133.Create a multiplication matrix using nested loops.
+## 133.Create a multiplication matrix using nested loops.
 
 ````JAVA[]
 
@@ -520,7 +578,7 @@ Multipliction of the matrix
 
 
 ````
-134.Print an alphabet pattern using nested loops.
+## 134.Print an alphabet pattern using nested loops.
 
 ````JAVA[]
 
@@ -552,7 +610,7 @@ A B C D E F
 
 
 ````
-135.Find all prime numbers between two numbers using nested loops.
+## 135.Find all prime numbers between two numbers using nested loops.
 
 ````JAVA[]
 
@@ -603,7 +661,7 @@ OUTPUT:
 
 
 ````
-136.Create a 2D array and initialize it with user input using nested loops.
+## 136.Create a 2D array and initialize it with user input using nested loops.
 
 ````JAVA[]
 import java.util.*;
@@ -654,7 +712,7 @@ Display the element
 
 
 ````
-137.Find the diagonal elements of a matrix using nested loops.
+## 137.Find the diagonal elements of a matrix using nested loops.
 
 ````JAVA[]
 
@@ -704,7 +762,7 @@ Diagonal Element of the matrix
 
 
 ````
-138.Create a number grid using nested loops.
+## 138.Create a number grid using nested loops.
 
 ````JAVA[]
 
@@ -746,7 +804,7 @@ NUMBER GRID
 
 
 ````
-139.Create a star pattern like a Christmas tree using nested loops.
+## 139.Create a star pattern like a Christmas tree using nested loops.
 
 ````JAVA[]
 
@@ -799,7 +857,7 @@ OUTPUT:
 
 
 ````
-140.Perform matrix addition using nested loops.
+## 140.Perform matrix addition using nested loops.
 
 ````JAVA[]
 
