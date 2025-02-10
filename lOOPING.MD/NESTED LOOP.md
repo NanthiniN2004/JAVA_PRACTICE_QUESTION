@@ -277,7 +277,7 @@ OUTPUT:
 
 ````
 
-128.Generate Pascal's Triangle using nested loops.
+## 128.Generate Pascal's Triangle using nested loops.
 
 ````java[]
 
@@ -309,7 +309,7 @@ OUTPUT
 
 ````
 
-129.Print a number pattern with asterisks using nested loops.
+## 129.Print a number pattern with asterisks using nested loops.
 
 
 ````JAVA[]
