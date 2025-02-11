@@ -428,6 +428,60 @@ valid input received51
 ## 152.Implement a switch case that calculates tax based on income. 
 ````java[]
 
+
+package Nanthu;
+import java.util.*;
+public class Main6 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stu
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the income");
+		double income=s.nextDouble();
+		
+		int taxBracket;
+		if(income <= 10000) {
+			taxBracket=0;
+		}
+		if(income <= 30000) {
+			taxBracket=10;
+		}
+		if(income <= 70000) {
+			taxBracket=20;
+		}
+		else {
+			taxBracket=30;
+		}
+		
+		double  tax;
+  switch(taxBracket) {
+		case 10:
+			tax=income*0.10;
+			break;
+		
+	case 20:
+		tax=income*0.20;
+		break;
+	
+     case 30:
+     	tax=income*0.30;
+     	break;
+     default:
+    	 tax=0;
+    	 break;
+}
+		System.out.println("your tax amount is: $"+tax);
+
+	}
+
+}
+
+
+OUTPUT:
+Enter the income
+80000
+your tax amount is: $24000.0
+
 ````
 ## 153.Implement a stack data structure using control flow statements.
 
@@ -940,11 +994,95 @@ Thank you
 # 157.Write a program to calculate power using recursion. 
 
 ````java[]
+package Nanthu;
+import java.util.*;
+public class Main5 {
+	public static int power(int base,int exp) {
+		if(exp==0) {
+			return 1;
+		}
+		return base*power(base,exp-1);
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the base");
+		int base=s.nextInt();
+		System.out.println("Enter the exponent");
+		int exp=s.nextInt();
+		int result=power(base,exp);
+		System.out.println(base+" ^ "+ exp +"= "+ result);
+
+	}
+
+}
+
+OUTPUT:
+
+Enter the base
+2
+Enter the expontial
+5
+2 ^ 5= 32
 
 
 ````
 ## 158.Create a number guessing game with loops and conditions. 
 ````java[]
+
+package Nanthu;
+import java.util.*;
+public class Main2 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		Random random=new Random();
+		
+		int numberToGuess=random.nextInt(100)+1;
+		int attempt=0;
+		int userinput=0;
+		System.out.println("  WELCOME TO NUMBER GUESSING GAME  ");
+		System.out.println("  GUESS A NUMBER BETWEEN 1 AND 100 ");
+		while(numberToGuess != userinput) {
+			 System.out.println("Enter the Guess");
+			 userinput=s.nextInt();
+			 attempt++;
+			 
+			 if(userinput < numberToGuess)
+			 {
+				 System.out.println("To low! Try Again");
+			 }
+			 else if(userinput> numberToGuess) {
+				 System.out.println("To high! Try Again");
+			 }
+			 else {
+				 System.out.println("Congratulations! You guessed the number in " + attempt + " attempts.");
+			 }
+		}
+
+	}
+
+}
+
+OUTPUT:
+
+ WELCOME TO NUMBER GUESSING GAME  
+  GUESS A NUMBER BETWEEN 1 AND 100 
+Enter the Guess
+55
+To low! Try Again
+Enter the Guess
+71
+To high! Try Again
+Enter the Guess
+60
+To high! Try Again
+Enter the Guess
+58
+To low! Try Again
+Enter the Guess
+59
+Congratulations! You guessed the number in 5 attempts.
 
 
 
@@ -953,12 +1091,106 @@ Thank you
 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+public class Main4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<n;j++) {
+				if((i+j)%2==0) {
+					System.out.print("* ");
+				}
+				else {
+					System.out.print("  ");
+				}
+			}
+			System.out.println();
+		}
+
+	}
+
+}
+
+
+OUTPUT:
+
+5
+*   *   * 
+  *   *   
+*   *   * 
+  *   *   
+*   *   * 
 
 ````
 ## 160.Implement a vending machine system using switch statements.
 
 ````java[]
+package Nanthu;
+import java.util.*;
+public class Main3 {
 
+	public static void main(String[] args) {
+	     Scanner s=new Scanner(System.in);
+	     System.out.println("  WELCOME TO VENDING MACHINE  ");
+	 
+	    		    System.out.println("1. Chips - $2");
+	    	        System.out.println("2. Soda - $3");
+	    	        System.out.println("3. Chocolate - $4");
+	    	        System.out.println("4. Tea - $4");
+	    	        System.out.println("5. Coffee - $6");
+	    	        System.out.println("6. Exit");
+	    	        
+	    	        System.out.println("Enter your choice");
+	    	        int choice=s.nextInt();
+	    	        
+	    	        switch(choice) {
+	    	        case 1:
+	    	        	System.out.println("You selected chips!  please pay $ 2");
+	    	        	break;
+	    	        case 2:
+	    	        	System.out.println("You selected soda!  please pay $ 3");
+	    	        	break;
+	    	        case 3:
+	    	        	System.out.println("You selected chocolate!  please pay $ 4");
+	    	        	break;
+	    	        case 4:
+	    	        	System.out.println("You selected Tea!  please pay $ 4");
+	    	        	break;
+	    	        	
+	    	        case 5:
+	    	        	System.out.println("You selected Coffee!  please pay $ 6");
+	    	        	break;
+	    	        case 6:
+	    	        	System.out.println("** THANK YOU **");
+	    	        	break;
+	    	        default:
+	    	        	System.out.println("Invalid input! Please select valid choice");
+	    	        }
+
+	}
+
+}
+
+
+OUTPUT:
+
+  WELCOME TO VENDING MACHINE  
+1. Chips - $2
+2. Soda - $3
+3. Chocolate - $4
+4. Tea - $4
+5. Coffee - $6
+6. Exit
+Enter your choice
+5
+You selected Coffee!  please pay $ 6
+
+````
 
 
 ````
