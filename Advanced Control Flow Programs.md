@@ -364,6 +364,86 @@ nanthini@gmail.com
 ## 171.Create a weather app interface using control statements.
 ````java[]
 
+package sample;
+
+import java.util.Scanner;
+
+public class Main6 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Weather App!");
+        System.out.println("Enter the current temperature (°C):");
+        int temperature = scanner.nextInt();
+
+        System.out.println("Is it raining? (yes/no):");
+        String rainInput = scanner.next().toLowerCase();
+        boolean isRaining = rainInput.equals("yes");
+
+        System.out.println("Is it windy? (yes/no):");
+        String windInput = scanner.next().toLowerCase();
+        boolean isWindy = windInput.equals("yes");
+
+        System.out.println("Choose the city: ");
+        System.out.println("1. New York\n2. London\n3. Tokyo\n4. Sydney");
+        int cityChoice = scanner.nextInt();
+        String city = "";
+
+        switch (cityChoice) {
+            case 1: city = "New York"; break;
+            case 2: city = "London"; break;
+            case 3: city = "Tokyo"; break;
+            case 4: city = "Sydney"; break;
+            default: city = "Unknown City";
+        }
+
+        System.out.println("\nWeather Report for " + city + ":");
+        
+        if (temperature > 30) {
+            System.out.println("It's very hot outside! Stay hydrated.");
+        } else if (temperature > 20) {
+            System.out.println("It's warm outside. Enjoy your day!");
+        } else if (temperature > 10) {
+            System.out.println("It's cool outside. A light jacket is recommended.");
+        } else {
+            System.out.println("It's cold outside! Wear warm clothes.");
+        }
+
+        if (isRaining) {
+            System.out.println("It's raining. Don't forget your umbrella!");
+        }
+
+        if (isWindy) {
+            System.out.println("It's windy. Be cautious if you're going outside.");
+        }
+
+        System.out.println("\nThank you for using the Weather App!");
+        scanner.close();
+    }
+}
+
+
+output:
+
+Welcome to the Weather App!
+Enter the current temperature (°C):
+40
+Is it raining? (yes/no):
+no
+Is it windy? (yes/no):
+yes
+Choose the city: 
+1. New York
+2. London
+3. Tokyo
+4. Sydney
+2
+
+Weather Report for London:
+It's very hot outside! Stay hydrated.
+It's windy. Be cautious if you're going outside.
+
+Thank you for using the Weather App!
 
 
 ````
@@ -371,11 +451,101 @@ nanthini@gmail.com
 ````java[]
 
 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	   Scanner s=new Scanner(System.in);
+		int n=s.nextInt();
+		int[] a=new int[n];
+		for(int i=0;i<n;i++){
+		    a[i]=s.nextInt();
+		}
+		bubblesort(a,n);
+			for(int i=0;i<n;i++){
+		    System.out.print(a[i]+" ");
+		}
+		
+	}
+	public static void bubblesort(int[] a,int n){
+		for(int i=0;i<n;i++){
+		    for(int j=i;j<n-1-i;j++){
+		        if(a[j]>a[j+1]){
+		            int temp=a[j];
+		            a[j]=a[j+1];
+		            a[j+1]=temp;
+		        }
+		    }
+		}
+	
+	}
+}
+
+
+OUTPUT:
+
+5
+3
+1
+5
+2
+4
+1 2 3 4 5
+
+
 ````
 ## 173.Implement insertion sort using loops.
 ````java[]
 
+package sample;
+import java.util.*;
+public class Main4 {
+ public static void insertionSort(int a[],int n) {
+	 for(int i=0;i<=n-2;i++) {
+		 for(int j=i+1;j>0;j--) {
+			 if(a[j] <a[j-1]) {
+				 int temp=a[j];
+				 a[j]=a[j-1];
+				 a[j-1]=temp;
+			 }
+			 else {
+				 break;
+			 }
+		 }
+	 }
+ }
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the element");
+		for(int i=0;i<n;i++) {
+			a[i]=s.nextInt();
+		}
+		System.out.println("After sorting");
+		insertionSort(a,n);
+		for(int i:a) {
+			System.out.print(i+" ");
+		}
 
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the size of the array
+5
+Enter the element
+8
+3
+5
+9
+1
+After sorting
+1 3 5 8 9 
 
 
 ````
@@ -389,11 +559,115 @@ nanthini@gmail.com
 ## 175.Implement selection sort with a loop.
 ````java[]
 
+package sample;
+import java.util.*;
+public class Main5 {
+	public static void selectionSort(int a[],int n) {
+		for(int i=0;i<n-1;i++) {
+			int midindex=i;
+			for(int j=i+1;j<n;j++) {
+				if(a[j]<a[midindex]) {
+					midindex=j;
+				}
+			}
+			int temp=a[midindex];
+			a[midindex]=a[i];
+			a[i]=temp;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the size of the array");
+		int n=s.nextInt();
+		int a[]=new int[n];
+		System.out.println("Enter the element");
+		for(int i=0;i<n;i++) {
+			a[i]=s.nextInt();
+		}
+		System.out.println("After sorting");
+		selectionSort(a,n);
+		for(int i:a) {
+			System.out.print(i+" ");
+		}
+
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the size of the array
+5
+Enter the element
+71
+77
+51
+55
+11
+After sorting
+11 51 55 71 77 
+
 
 ````
 ## 176.Perform a binary search recursively.
 ````java[]
 
+package sample;
+import java.util.*;
+public class Main1 {
+ public static int binarySearch(int[] a,int start,int end,int target)
+ {
+	 while(start<end) {
+		 int mid=(start+end)/2;
+		 if(a[mid]==target) {
+			 return mid;
+		 }
+		 else if(a[mid]>target) {
+			 return binarySearch(a,start,mid-1,target);
+		 }
+		 else {
+			 return binarySearch(a,mid+1,end,target);
+		 }
+	 }
+	 return -1;
+ }
+	public static void main(String[] args) {
+     Scanner s=new Scanner(System.in);
+     System.out.println("Enter the size of the array");
+     int n=s.nextInt();
+     int[] a=new int[n];
+     System.out.println("Ënter the array element");
+     for(int i=0;i<n;i++) {
+    	 a[i]=s.nextInt();
+     }
+     System.out.println("Enter the target element");
+     int target=s.nextInt();
+     int result=binarySearch(a,0,n-1,target);
+     if(result==-1) {
+    	 System.out.println("Element is not found");
+     }
+     else {
+    	System.out.println(" Element is found "+ result);
+     }
+
+	}
+
+}
+OUTPUT:
+
+Enter the size of the array
+5
+Ënter the array element
+10
+20
+30
+40
+50
+Enter the target element
+40
+Element is found 3
 
 
 ````
@@ -401,10 +675,195 @@ nanthini@gmail.com
 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+ class BankAccount{
+	  String AccountHolderName;
+	  String AccountNumber;
+	  double balance;
+	  
+	  BankAccount(String AccountHolderName,String AccountNumber,double balance){
+		  this.AccountHolderName=AccountHolderName;
+		  this.AccountNumber=AccountNumber;
+		  this.balance=balance;
+	  }
+	  
+	  public void deposit(double amount) {
+		  if(amount>0) {
+			  balance+=amount;
+			  System.out.println("Deposit $ "+amount);
+		  }
+		  else {
+			  System.out.println("invalid amount");
+		  }
+	  }
+	  
+	  public void withdraw(double amount) {
+		  if(amount>0 && amount<=balance) {
+			  balance-=amount;
+			  System.out.println("Withdraw $ "+ balance);
+		  }
+		  else {
+			  System.out.println("Invalid amount or insufficient balance");
+		  }
+	  }
+	  
+	  public void checkbalance() {
+		  System.out.println("Balance Amount $ : " + balance);
+	  }
+	  public void detail() {
+		  System.out.println("Account Holder Name: " + AccountHolderName);
+		  System.out.println("Account Number: " + AccountNumber);
+		  System.out.println("Balance Amount $ : " + balance);
+	  }
+ }
+public class Main {
+
+	public static void main(String[] args) {
+	 Scanner s=new Scanner(System.in);
+	 System.out.println("Enter the Account Holder Name");
+	 String AccountHolderName=s.nextLine();
+	 System.out.println("Enter the Account Number");
+	 String AccountNumber=s.nextLine();
+	 System.out.println("Enter the Initial Balance");
+	 double  balance=s.nextDouble();
+	 BankAccount b=new BankAccount(AccountHolderName,AccountNumber,balance);
+     while(true) {
+    	 System.out.println("\nChoose an operation:");
+         System.out.println("1. Deposit");
+         System.out.println("2. Withdraw");
+         System.out.println("3. Check Balance");
+         System.out.println("4. Account Details");
+         System.out.println("5. Exit");
+         System.out.print("Enter choice: ");
+         int choice = s.nextInt();
+         
+         switch(choice) {
+         case 1:
+        	 System.out.println("Enter the deposit amount");
+        	 double amount=s.nextDouble();
+        	 b.deposit(amount);
+        	 break;
+         
+         case 2:
+        	 System.out.println("Enter the withdraw amount");
+        	 double withdrawamount=s.nextDouble();
+        	 b.deposit(withdrawamount);
+        	 break;
+         
+         case 3:
+        	 b.checkbalance();
+        	 break;
+        
+         case 4:
+        	 b.detail();
+        	 break;
+        	 
+         case 5:
+        	 System.out.println("Thank you");
+        	 return;
+        default:
+        	System.out.println("invalid choice, please Enter valid choice");
+        
+     }
+	}
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the Account Holder Name
+Nanthini
+Enter the Account Number
+957623
+Enter the Initial Balance
+2000
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 1
+Enter the deposit amount
+1000
+Deposit $ 1000.0
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 3
+Balance Amount $ : 3000.0
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 5
+Thank you
 
 ````
 ## 178.Write a program for linear search recursively.
 ````java[]
+
+package sample;
+import java.util.*;
+
+public class Main2 {
+	public static int linearSearch(int[] a,int n,int target) {
+		if(n==0) {
+			return 0;
+		}
+		else if(a[n-1]==target) {
+			return n-1;
+		}
+		return linearSearch(a,n-1,target);
+	}
+public static void main(String args[]) {
+	Scanner s=new Scanner(System.in);
+    System.out.println("Enter the size of the array");
+    int n=s.nextInt();
+    int[] a=new int[n];
+    System.out.println("Ënter the array element");
+    for(int i=0;i<n;i++) {
+   	 a[i]=s.nextInt();
+    }
+    System.out.println("Enter the target element");
+    int target=s.nextInt();
+    int result=linearSearch(a,n,target);
+    if(result==-1) {
+    	System.out.println(" Element Not found");
+    }
+    else {
+    	 System.out.println(
+                 "The element " + target + " is found at "
+                 +result + " index of the given array.");
+    }
+}
+}
+
+
+OUTPUT:
+
+Enter the size of the array
+5
+Ënter the array element
+90
+50
+71
+55
+101
+Enter the target element
+50
+The element 50 is found at 1 index of the given array.
 
 
 ````
