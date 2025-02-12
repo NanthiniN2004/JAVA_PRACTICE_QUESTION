@@ -359,3 +359,65 @@ nanthini@gmail.com
 
 
 `````
+
+
+## 171.Create a weather app interface using control statements.
+````java[]
+
+
+
+````
+## 172.Write a program for bubble sort.
+````java[]
+
+
+````
+## 173.Implement insertion sort using loops.
+````java[]
+
+
+
+
+````
+## 174.Perform quicksort on an array using recursion.
+
+````java[]
+
+
+
+````
+## 175.Implement selection sort with a loop.
+````java[]
+
+
+````
+## 176.Perform a binary search recursively.
+````java[]
+
+
+
+````
+## 177.Create a class to manage a simple bank account.
+
+````java[]
+
+
+````
+## 178.Write a program for linear search recursively.
+````java[]
+
+
+````
+## 179.Implement depth-first search using a stack.
+
+````java[]
+
+
+
+````
+## 180.Implement breadth-first search using a queue.
+````java[]
+
+
+
+````
