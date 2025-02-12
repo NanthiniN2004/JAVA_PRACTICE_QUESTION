@@ -123,6 +123,58 @@ Generated Password: &2DHSD0c
 ````java[]
 
 
+import java.util.*;
+
+class ChatApplication {
+    public void startChat() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Simple Command-Line Chat Application");
+        System.out.println("Type 'exit' to end the chat.");
+        
+        String message;
+        do {
+            System.out.print("You: ");
+            message = scanner.nextLine();
+            
+            if (!message.equalsIgnoreCase("exit")) {
+                System.out.println("Bot: " + generateResponse(message));
+            }
+        } while (!message.equalsIgnoreCase("exit"));
+        
+        System.out.println("Chat ended.");
+        scanner.close();
+    }
+    
+    private String generateResponse(String input) {
+        if (input.toLowerCase().contains("hello")) {
+            return "Hello! How can I assist you?";
+        } else if (input.toLowerCase().contains("how are you")) {
+            return "I'm just a bot, but I'm here to chat with you!";
+        } else {
+            return "That's interesting! Tell me more.";
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ChatApplication chatApp = new ChatApplication();
+        chatApp.startChat();
+    }
+}
+
+OUTPUT:
+
+Simple Command-Line Chat Application
+Type 'exit' to end the chat.
+You: hello
+Bot: Hello! How can I assist you?
+You: yes
+Bot: That's interesting! Tell me more.
+You: exit
+Chat ended.
+
+
 ````
 ## 185.Implement a quiz program that uses arrays.
 ````java[]
@@ -261,6 +313,42 @@ Count of the words in the sentence= 8
 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+
+class Application{
+	public String compression(String str) {
+		StringBuilder compress=new StringBuilder();
+		int count=1;
+		for(int i=0;i<str.length();i++) {
+			if(i+1<str.length() && str.charAt(i)==str.charAt(i+1)) {
+				count++;			
+			}
+			else {
+				compress.append(str.charAt(i)).append(count);
+				count=1;
+			}
+		}
+		return compress.length() < str.length() ? compress.toString() : str;			
+	}	
+}
+public class Main15 {
+
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	System.out.println("Enter the String");
+	String str=s.nextLine();
+	Application a=new Application();
+	String com=a.compression(str);
+	System.out.println("Compression String: "+com);
+	}
+}
+
+OUTPUT:
+
+Enter the String
+aaaabbbcccc
+Compression String: a4b3c4
 
 ````
 ## 188.Create a program to generate the first N prime numbers.
@@ -872,8 +960,6 @@ public class Main {
 	}
 
 }
-
-
 OUTPUT:
 
 Enter the Account Holder Name
@@ -918,6 +1004,112 @@ Thank you
 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+class Student{
+	String name;
+	int  roll_no;
+	String dept;
+	int mark;
+	public Student(String name,int roll_no,String dept,int mark) {
+		this.name=name;
+		this.roll_no=roll_no;
+		this.dept=dept;
+		this.mark=mark;
+	}
+	
+	public void display() {
+	System.out.println("Name :"+name);
+	System.out.println("Roll Number :"+roll_no);
+	System.out.println("Department :"+dept);
+	System.out.println("Mark :"+mark);
+}
+}
+public class Main16 {
+
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	ArrayList<Student> a=new ArrayList<>();
+	while(true) {
+		System.out.println("  Student Detail  ");
+		System.out.println(" 1.Added Student ");
+		System.out.println(" 2.Display Student Detail ");
+		System.out.println(" 3.Exit ");
+		System.out.println("Enter you choice ");
+		int choice=s.nextInt();
+		switch(choice) {
+	
+		case 1:
+		    System.out.println("Enter your name");
+		    s.nextLine(); 
+		    String name = s.nextLine();
+		    System.out.println("Enter your roll number");
+		    int roll_no = s.nextInt();
+		    System.out.println("Enter your Department");
+		    s.nextLine(); 
+		    String dept = s.nextLine();
+		    System.out.println("Enter your Mark");
+		    int mark = s.nextInt();
+		    a.add(new Student(name, roll_no, dept, mark)); 
+		    System.out.println("Successfully Added");
+		    break;
+
+		 
+		case 2:
+             System.out.println("\nStudent Records:");
+             for (Student student : a) {
+                 student.display();
+             }
+             break;
+         case 3:
+             System.out.println("Exiting... Goodbye!");
+             return;
+         default:
+             System.out.println("Invalid choice. Please try again.");
+			
+		}
+	}
+
+	}
+
+}
+
+OUTPUT:
+
+Student Detail  
+ 1.Added Student 
+ 2.Display Student Detail 
+ 3.Exit 
+Enter you choice 
+1
+Enter your name
+Nanthini
+Enter your roll number
+51
+Enter your Department
+cse
+Enter your Mark
+95
+Successfully Added
+  Student Detail  
+ 1.Added Student 
+ 2.Display Student Detail 
+ 3.Exit 
+Enter you choice 
+2
+
+Student Records:
+Name :Nanthini
+Roll Number :51
+Department :cse
+Mark :95
+  Student Detail  
+ 1.Added Student 
+ 2.Display Student Detail 
+ 3.Exit 
+Enter you choice 
+3
+Exiting... Goodbye!
 
 
 ````
