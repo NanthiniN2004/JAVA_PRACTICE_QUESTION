@@ -126,6 +126,97 @@ Generated Password: &2DHSD0c
 ````
 ## 185.Implement a quiz program that uses arrays.
 ````java[]
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] questions = {
+            "What is the default value of an int variable in Java?",
+            "Which keyword is used to define a constant variable in Java?",
+            "Which of the following is not a valid access modifier in Java?",
+            "What is the size of a char variable in Java?",
+            "Which of these is used to handle exceptions in Java?"
+        };
+
+        String[][] options = {
+            {"A. 0", "B. null", "C. undefined", "D. garbage value"},
+            {"A. final", "B. constant", "C. static", "D. const"},
+            {"A. public", "B. private", "C. protected", "D. internal"},
+            {"A. 2 byte", "B. 1 bytes", "C. 4 bytes", "D. 8 bytes"},
+            {"A. try-catch", "B. error-handler", "C. catch-block", "D. throws"}
+        };
+
+        char[] answers = {'A', 'A', 'D', 'B', 'A'}; 
+        int score = 0;
+
+    
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println("Question " + (i + 1) + ": " + questions[i]);
+            for (String option : options[i]) {
+                System.out.println(option);
+            }
+            System.out.print("Your answer: ");
+            char userAnswer = Character.toUpperCase(scanner.next().charAt(0));
+
+            if (userAnswer == answers[i]) {
+                System.out.println("Correct!\n");
+                score++;
+            } else {
+                System.out.println("Wrong! The correct answer is " + answers[i] + "\n");
+            }
+        }
+
+        System.out.println("Quiz Over! Your final score is: " + score + "/" + questions.length);
+        scanner.close();
+    }
+}
+
+
+OUTPUT:
+
+Question 1: What is the default value of an int variable in Java?
+A. 0
+B. null
+C. undefined
+D. garbage value
+Your answer: A
+Correct!
+
+Question 2: Which keyword is used to define a constant variable in Java?
+A. final
+B. constant
+C. static
+D. const
+Your answer: B
+Wrong! The correct answer is A
+
+Question 3: Which of the following is not a valid access modifier in Java?
+A. public
+B. private
+C. protected
+D. internal
+Your answer: D
+Correct!
+
+Question 4: What is the size of a char variable in Java?
+A. 2 byte
+B. 1 bytes
+C. 4 bytes
+D. 8 bytes
+Your answer: B
+Correct!
+
+Question 5: Which of these is used to handle exceptions in Java?
+A. try-catch
+B. error-handler
+C. catch-block
+D. throws
+Your answer: A
+Correct!
+
+Quiz Over! Your final score is: 4/5
 
 
 ````
@@ -292,6 +383,97 @@ Email: nan2@gmail.com
 ## 191.Implement a voting system using classes and loops.
 ````java[]
 
+package Nanthu;
+import java.util.*;
+class VotingSystem{
+	String[] candidates= {"Candidate A","Candidate B","Candidate C"};
+	int[] voting=new int[candidates.length];
+	 public void votingCandidate(int choice) {
+		 if(choice>=1 && choice<=candidates.length) {
+			 voting[choice-1]++;
+			 System.out.println("Successfully Voted by "+candidates[choice-1]);
+		 }
+		 else {
+			 System.out.println("Not voted");
+		 }
+	 }
+	 public void display() {
+		 for(int i=0;i<candidates.length;i++) {
+			 System.out.println(candidates[i]+": "+ voting[i]+" voted");
+		 }
+	 }
+}
+public class Main14 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+	 VotingSystem v=new VotingSystem();
+	 int choice;
+	 do {
+	 System.out.println("  VOTING SYSTEM  ");
+	 System.out.println(" 1.Candidate 1");
+	 System.out.println(" 2.Candidate 2");
+	 System.out.println(" 3.Candidate 3");
+	 System.out.println(" 4.Display");
+	 System.out.println(" 5.Exit");
+	 
+	 System.out.println("Enter your choice");
+	 choice=s.nextInt();
+
+	 if (choice >= 1 && choice <= 3) {
+         v.votingCandidate(choice);
+     } else if (choice == 4) {
+         v.display();
+     } else if (choice != 5) {
+         System.out.println("Invalid choice. Please try again.");
+     }
+    } while (choice != 5);
+	 System.out.println("Thank you for participating in the vote.");
+
+	}
+
+}
+
+OUTPUT:
+ VOTING SYSTEM  
+ 1.Candidate 1
+ 2.Candidate 2
+ 3.Candidate 3
+ 4.Display
+ 5.Exit
+Enter your choice
+1
+Successfully Voted by Candidate A
+  VOTING SYSTEM  
+ 1.Candidate 1
+ 2.Candidate 2
+ 3.Candidate 3
+ 4.Display
+ 5.Exit
+Enter your choice
+4
+Candidate A: 1 voted
+Candidate B: 0 voted
+Candidate C: 0 voted
+  VOTING SYSTEM  
+ 1.Candidate 1
+ 2.Candidate 2
+ 3.Candidate 3
+ 4.Display
+ 5.Exit
+Enter your choice
+3
+Successfully Voted by Candidate C
+  VOTING SYSTEM  
+ 1.Candidate 1
+ 2.Candidate 2
+ 3.Candidate 3
+ 4.Display
+ 5.Exit
+Enter your choice
+5
+Thank you for participating in the vote.
+
 
 
 ````
@@ -454,17 +636,140 @@ Thank you
 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+public class Main13 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		double inrToUsd = 0.012;
+        double inrToEur = 0.011;
+        double inrToGbp = 0.009;
+		System.out.println(" CURRENCY CONVERTOR");
+		System.out.println("Enter the indian Money");
+		double amt=s.nextDouble();
+		double convertedAmount = 0;
+        String currency = "";
+        System.out.println("Choose currency to convert to:");
+        System.out.println("1. USD");
+        System.out.println("2. EUR");
+        System.out.println("3. GBP");
+        System.out.print("Enter your choice: ");
+        int choice = s.nextInt();
+        switch (choice) {
+            case 1:
+                convertedAmount = amt * inrToUsd;
+                currency = "USD";
+                break;
+            case 2:
+                convertedAmount = amt * inrToEur;
+                currency = "EUR";
+                break;
+            case 3:
+                convertedAmount = amt * inrToGbp;
+                currency = "GBP";
+                break;
+            default:
+                System.out.println("Invalid choice.");
+                return;
+        }
+        
+        System.out.printf("Converted amount: %.2f %s\n", convertedAmount, currency);
+
+	}
+
+}
+
+OUTPUT:
+
+CURRENCY CONVERTOR
+Enter the indian Money
+50
+Choose currency to convert to:
+1. USD
+2. EUR
+3. GBP
+Enter your choice: 1
+Converted amount: 0.60 USD
 
 
 ````
 ## 197.Create a program to count the frequency of words in a sentence.
 ````java[]
 
+package Nanthu;
+import java.util.*;
+public class Main11 {
+
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	System.out.println("Enter the sentence");
+	String sen=s.nextLine().toLowerCase();
+	String[] words=sen.split("\\s+");
+	boolean[] count=new boolean[words.length];
+	System.out.println("Words Frequency");
+	for(int i=0;i<words.length;i++) {
+		words[i]=words[i].replaceAll("[^a-zA-Z]", "");
+		if(!count[i] && !words[i].isEmpty()) {
+			int count1=1;
+			for(int j=i+1;j<words.length;j++) {
+				words[j]=words[j].replaceAll("[^a-zA-Z]", "");
+			if(words[i].equals(words[j])) {
+				count1++;
+				count[j]=true;
+			}
+		}
+			System.out.println(words[i] +": "+count1);
+	}
+	}
+
+	}
+
+}
+
+OUTPUT:
+
+Enter the sentence
+java is object oriented programming language, java is platform independance
+Words Frequency
+java: 2
+is: 2
+object: 1
+oriented: 1
+programming: 1
+language: 1
+platform: 1
+independance: 1
 
 ````
 ## 198.Write a program to find the longest word in a string.
 ````java[]
+package Nanthu;
+import java.util.*;
+public class Main12 {
 
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the sentence");
+		String sen=s.nextLine();
+		String[] words=sen.split("\\s+");
+		String longest=" ";
+		for(String word:words) {
+			if(word.length()>longest.length()) {
+				longest=word;
+			}
+		}
+		System.out.println("longest word in the Sentence:  " +longest);
+
+	}
+
+}
+
+OUTPUT:
+
+Enter the sentence
+I am Nanthini, I want to become a DataScientist.
+longest word in the Sentence:  DataScientist.
 
 ````
 ## 199.Create a simple ATM simulation with deposit/withdraw functions.
