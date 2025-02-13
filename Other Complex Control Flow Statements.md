@@ -422,6 +422,39 @@ valid input received51
 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+public class Main13 {
+
+	public static int armstrong(int n,int digit) {
+		if(n==0) {
+			return 0;
+		}
+		int a=n%10;
+		return (int)Math.pow(a,digit)+ armstrong(n/=10,digit);
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the value of n");
+		int n=s.nextInt();
+		int digit=(int)Math.log10(n)+1;
+		if(n==armstrong(n,digit)) {
+		System.out.println("Armstrong Number");
+		}
+		else {
+			System.out.println(" Not Armstrong Number");
+		}
+
+	}
+
+}
+
+output:
+
+Enter the value of n
+1634
+Armstrong Number
 
 
 ````
@@ -1193,4 +1226,3 @@ You selected Coffee!  please pay $ 6
 ````
 
 
-````
