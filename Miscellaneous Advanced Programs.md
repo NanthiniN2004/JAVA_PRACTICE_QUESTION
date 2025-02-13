@@ -465,6 +465,45 @@ Email: nan2@gmail.com
 ## 190 .Build a basic database system with file operations.
 
 ````java[]
+package Nanthu;
+import java.util.*;
+import java.io.*;
+public class Main18 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String filename="example.txt";
+		String con="hello Every One";
+		
+		try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename))){
+			writer.write(con);
+			System.out.println("File written Successfully");
+		}
+		catch (IOException e) {
+            System.out.println("An error occurred while writing the file.");
+            e.printStackTrace();
+        }
+		try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            System.out.println("Reading from file:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+
+	}
+
+}
+
+
+output:
+
+File written Successfully
+Reading from file:
+hello Every One
 
 
 ````
@@ -568,6 +607,47 @@ Thank you for participating in the vote.
 ## 192.Create a program to convert numbers to words.
 ````java[]
 
+package Nanthu;
+import java.util.*;
+
+public class Main23 {
+    private static final String[] units = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    private static final String[] teens = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    private static final String[] tens = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter a number (0-9999): ");
+        int n = s.nextInt();
+        System.out.println("In Words: " + convert(n));
+        s.close();
+    }
+
+    public static String convert(int n) {
+        if (n == 0) {
+            return "Zero";
+        }
+        if (n < 10) {
+            return units[n];
+        }
+        if (n < 20) {
+            return teens[n - 10];
+        }
+        if (n < 100) {
+            return tens[n / 10] + (n % 10 != 0 ? " " + units[n % 10] : "");
+        }
+        if (n < 1000) {
+            return units[n / 100] + " Hundred" + (n % 100 != 0 ? " " + convert(n % 100) : "");
+        }
+        return units[n / 1000] + " Thousand" + (n % 1000 != 0 ? " " + convert(n % 1000) : "");
+    }
+}
+
+OUTPUT:
+
+Enter a number (0-9999): 
+51
+In Words: Fifty One
 
 
 ````
