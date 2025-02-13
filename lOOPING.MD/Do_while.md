@@ -655,5 +655,86 @@ Enter the end value
 
 ````JAVA[]
 
+package Nanthu;
+
+import java.util.*;
+public class Main12 {
+
+	public static void main(String[] args) {
+	     Scanner s=new Scanner(System.in);
+	     int choice;
+	     do {
+	     System.out.println("  WELCOME TO VENDING MACHINE  ");
+	 
+	    		    System.out.println("1. Chips - $2");
+	    	        System.out.println("2. Soda - $3");
+	    	        System.out.println("3. Chocolate - $4");
+	    	        System.out.println("4. Tea - $4");
+	    	        System.out.println("5. Coffee - $6");
+	    	        System.out.println("6. Exit");
+	    	        
+	    	        System.out.println("Enter your choice");
+	    	         choice=s.nextInt();
+	    	        
+	    	        switch(choice) {
+	    	        case 1:
+	    	        	System.out.println("You selected chips!  please pay $ 2");
+	    	        	break;
+	    	        case 2:
+	    	        	System.out.println("You selected soda!  please pay $ 3");
+	    	        	break;
+	    	        case 3:
+	    	        	System.out.println("You selected chocolate!  please pay $ 4");
+	    	        	break;
+	    	        case 4:
+	    	        	System.out.println("You selected Tea!  please pay $ 4");
+	    	        	break;
+	    	        	
+	    	        case 5:
+	    	        	System.out.println("You selected Coffee!  please pay $ 6");
+	    	        	break;
+	    	        case 6:
+	    	        	System.out.println("** THANK YOU **");
+	    	        	break;
+	    	        default:
+	    	        	System.out.println("Invalid input! Please select valid choice");
+	    	        }
+	    	        
+	     }  while(choice !=6);
+
+	}
+
+}
+
+ WELCOME TO VENDING MACHINE  
+1. Chips - $2
+2. Soda - $3
+3. Chocolate - $4
+4. Tea - $4
+5. Coffee - $6
+6. Exit
+Enter your choice
+ 1
+You selected chips!  please pay $ 2
+  WELCOME TO VENDING MACHINE  
+1. Chips - $2
+2. Soda - $3
+3. Chocolate - $4
+4. Tea - $4
+5. Coffee - $6
+6. Exit
+Enter your choice
+ 4
+You selected Tea!  please pay $ 4
+  WELCOME TO VENDING MACHINE  
+1. Chips - $2
+2. Soda - $3
+3. Chocolate - $4
+4. Tea - $4
+5. Coffee - $6
+6. Exit
+Enter your choice
+6
+** THANK YOU **
 
 ````
