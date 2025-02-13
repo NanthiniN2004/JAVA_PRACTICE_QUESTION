@@ -1045,10 +1045,106 @@ FIVE
 ## 59.Implement a traffic light system using switch.
 ````java[]
 
+package Nanthu;
+import java.util.*;
+public class Main10 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner s=new Scanner(System.in);
+		System.out.println(" Traffic Light System");
+		System.out.println("1. RED");
+		System.out.println("2. YELLOW");
+		System.out.println("3. GREEN");
+		System.out.println("4. EXIT");
+		System.out.println("Enter you choice");
+		int choice=s.nextInt();
+		switch(choice) {
+		case 1:
+			System.out.println(" RED : STOP");
+		 break;
+		case 2:
+			System.out.println(" YELLOW: WAIT");
+		 break;
+		case 3:
+			System.out.println(" GREEN : GO");
+		 break;
+		 
+		case 4:
+			System.out.println(" EXIT");
+		 break;
+		 default:
+				System.out.println(" Invalid choice");	 
+		 
+		}
+	}
+}
+
+
+OUTPUT:
+
+Traffic Light System
+1. RED
+2. YELLOW
+3. GREEN
+4. EXIT
+Enter you choice
+ 2
+ YELLOW: WAIT
+
 
 ````
 ## 60.Solve a quadratic equation using switch-case for the discriminant.
 ````java[]
+
+package Nanthu;
+import java.util.*;
+public class Main11 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter the value of a and b and c");
+		int a=s.nextInt();
+		int b=s.nextInt();
+		int c=s.nextInt();
+		int res=(b*b)-(4*a*c);
+		int choice=(res>0)?1:(res==0)?2:3;
+		switch(choice) {
+		case 1:
+			double r1=(-b+ Math.sqrt(res))/(2*a);
+			double r2=(-b- Math.sqrt(res))/(2*a);
+			System.out.println("Two Distinct Root"+ r1 +" ,"+ r2);
+			break;
+	
+		case 2:
+			double r3=-b/(2*a);
+			System.out.println(" One root "+r3);
+			break;
+		
+		case 3:
+			double r4=-b/(2*a);
+			double imag=Math.sqrt(-res)/(2*a);
+	
+			System.out.println("Roots are complex:");
+            System.out.println("Root 1 = " + r4 + " + " + imag + "i");
+            System.out.println("Root 2 = " + r4 + " - " + imag + "i");
+			break;
+		default:
+			System.out.println(" Invalid input");
+		}
+
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the value of a and b and c
+1
+-3
+2
+Two Distinct Root2.0 ,1.0
 
 
 
