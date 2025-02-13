@@ -54,11 +54,174 @@ You found a hidden treasure! You win!
 ## 162 .Build a password validation program with loops and conditions. 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+public class Main19 {
 
+	
+	public static boolean isValid(String password) {
+		if(password.length()<8)
+			return false;
+		boolean upper=false, lower=false, digit=false;
+		for(char c:password.toCharArray()) {
+			if(Character.isUpperCase(c)) {
+				return upper=true;
+			}
+			if(Character.isLowerCase(c)) {
+				return lower=true;
+			}
+			if(Character.isDigit(c)) {
+				return digit=true;
+			}
+		}
+		return upper && lower && digit;
+	}
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		String password;
+		while(true)
+		{
+			System.out.println("Enter the password");
+			password=s.nextLine();
+			if(isValid(password)) {
+				System.out.println("Valid password");
+				break;
+			}
+			else {
+				System.out.println("Invalid password! Please Enter valid password");
+			}
+		}
+	}
+
+}
+
+output:
+Enter the password
+Nanthini13
+Valid password
 
 ````
 ## 163.Implement a Tic-Tac-Toe game using loops and conditions. 
 ````java[]
+
+package Nanthu;
+
+import java.util.Scanner;
+
+public class Main22 {
+    private static char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
+    private static char currentPlayer = 'X';
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        boolean won = false;
+        int moves = 0;
+
+        while (!won && moves < 9) {
+            printBoard();
+            System.out.println("Player " + currentPlayer + ", enter your move (row and column: 0 1 2): ");
+            int row = s.nextInt();
+            int col = s.nextInt();
+
+            if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ') {
+                board[row][col] = currentPlayer;
+                moves++;
+                won = checkWin();
+                if (!won) {
+                    currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+                }
+            } else {
+                System.out.println("Invalid move, try again.");
+            }
+        }
+
+        printBoard();
+        if (won) {
+            System.out.println("Player " + currentPlayer + " wins!");
+        } else {
+            System.out.println("It's a draw!");
+        }
+     
+    }
+
+    private static void printBoard() {
+        System.out.println("\n  0 1 2");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(i + " ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static boolean checkWin() {
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) return true;
+            if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) return true;
+        }
+        if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) return true;
+        if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) return true;
+        return false;
+    }
+}
+
+
+output:
+
+  0 1 2
+0       
+1       
+2       
+Player X, enter your move (row and column: 0 1 2): 
+1
+2
+
+  0 1 2
+0       
+1     X 
+2       
+Player O, enter your move (row and column: 0 1 2): 
+0
+0
+
+  0 1 2
+0 O     
+1     X 
+2       
+Player X, enter your move (row and column: 0 1 2): 
+0
+2
+
+  0 1 2
+0 O   X 
+1     X 
+2       
+Player O, enter your move (row and column: 0 1 2): 
+1
+1
+
+  0 1 2
+0 O   X 
+1   O X 
+2       
+Player X, enter your move (row and column: 0 1 2): 
+1
+0
+
+  0 1 2
+0 O   X 
+1 X O X 
+2       
+Player O, enter your move (row and column: 0 1 2): 
+2
+2
+
+  0 1 2
+0 O   X 
+1 X O X 
+2     O 
+Player O wins!
 
 
 
@@ -66,12 +229,139 @@ You found a hidden treasure! You win!
 ## 164.Implement a simple file I/O program. 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+import java.io.*;
+public class Main18 {
 
+	public static void main(String[] args) {
+		String filename="example.txt";
+		String con="hello Every One";
+		
+		try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename))){
+			writer.write(con);
+			System.out.println("File written Successfully");
+		}
+		catch (IOException e) {
+            System.out.println("An error occurred while writing the file.");
+            e.printStackTrace();
+        }
+		try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            System.out.println("Reading from file:");
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+
+	}
+
+}
+
+OUTPUT:
+File written Successfully
+Reading from file:
+hello Every One
 
 `````
 ## 165.Create a phonebook program with search functionality. 
 
 ````java[]
+
+package Nanthu;
+import java.util.*;
+public class Main20 {
+
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		Map<String,String> res=new HashMap<>();
+		while(true) {
+			System.out.println("  PHONEBOOK MANU  ");
+			System.out.println("1. Add Contact ");
+			System.out.println("2. Search Contact ");
+			System.out.println(" 3.Exit ");
+			System.out.println("Enter your choice");
+			int choice=s.nextInt();
+			switch(choice) {
+			case 1:
+				System.out.println("Enter name");
+				String name=s.nextLine();
+				s.nextLine();
+				System.out.println("Enter contact");
+				String no=s.nextLine();
+				res.put(name,no);
+				System.out.println(" Contact added Successfully");
+				break;
+			
+			case 2:
+				System.out.println("Enter name to search: ");
+                String searchName = s.nextLine();
+                s.nextLine();
+              
+                if (res.containsKey(searchName)) {
+                    System.out.println("Phone number: " + res.get(searchName));
+                } else {
+                    System.out.println("Contact not found.");
+                }
+                break;
+            
+			case 3:
+				System.out.println("Exiting Good Bye");
+				return;
+			default:
+				System.out.println("Invalid Input");
+			}
+				
+		}
+
+	}
+
+}
+
+OUTPUT:
+
+ PHONEBOOK MANU  
+1. Add Contact 
+2. Search Contact 
+ 3.Exit 
+Enter your choice
+1
+Enter name
+Nanthini
+Enter contact
+99443
+ Contact added Successfully
+  PHONEBOOK MANU  
+1. Add Contact 
+2. Search Contact 
+ 3.Exit 
+Enter your choice
+1
+Enter name
+dharu
+Enter contact
+9384
+ Contact added Successfully
+  PHONEBOOK MANU  
+1. Add Contact 
+2. Search Contact 
+ 3.Exit 
+Enter your choice
+2
+Enter name to search: 
+dharu
+Phone number: 9384
+  PHONEBOOK MANU  
+1. Add Contact 
+2. Search Contact 
+ 3.Exit 
+Enter your choice
+3
+Exiting Good Bye
+
 
 
 
@@ -355,6 +645,80 @@ nanthini@gmail.com
 ## 170 .Build a number encryption/decryption program. 
 ````java[]
 
+package Nanthu;
+import java.util.Scanner;
+
+public class Main21 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            System.out.println("\nEncryption/Decryption Menu:");
+            System.out.println("1. Encrypt a Number");
+            System.out.println("2. Decrypt a Number");
+            System.out.println("3. Exit");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter a number to encrypt: ");
+                    int n = scanner.nextInt();
+                    int encryptedNumber = encrypt(n);
+                    System.out.println("Encrypted number: " + encryptedNumber);
+                    break;
+                
+                case 2:
+                    System.out.print("Enter a number to decrypt: ");
+                    int n1 = scanner.nextInt();
+                    int decryptedNumber = decrypt(n1);
+                    System.out.println("Decrypted number: " + decryptedNumber);
+                    break;
+                
+                case 3:
+                    System.out.println("Exiting program. Goodbye!");
+                    scanner.close();
+                    return;
+                
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+    
+    public static int encrypt(int num) {
+        return num + 5; 
+    }
+    public static int decrypt(int num) {
+        return num - 5; 
+    }
+}
+
+
+OUTPUT:
+
+Encryption/Decryption Menu:
+1. Encrypt a Number
+2. Decrypt a Number
+3. Exit
+Choose an option: 1
+Enter a number to encrypt: 55
+Encrypted number: 60
+
+Encryption/Decryption Menu:
+1. Encrypt a Number
+2. Decrypt a Number
+3. Exit
+Choose an option: 2
+Enter a number to decrypt: 40
+Decrypted number: 35
+
+Encryption/Decryption Menu:
+1. Encrypt a Number
+2. Decrypt a Number
+3. Exit
+Choose an option: 3
+Exiting program. Goodbye!
 
 
 
