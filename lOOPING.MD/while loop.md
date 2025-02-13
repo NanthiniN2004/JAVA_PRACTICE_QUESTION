@@ -634,6 +634,139 @@ Enter the value
 
 ````java[]
 
+package Nanthu;
+import java.util.*;
+ class BankAccount{
+	  String AccountHolderName;
+	  String AccountNumber;
+	  double balance;
+	  
+	  BankAccount(String AccountHolderName,String AccountNumber,double balance){
+		  this.AccountHolderName=AccountHolderName;
+		  this.AccountNumber=AccountNumber;
+		  this.balance=balance;
+	  }
+	  
+	  public void deposit(double amount) {
+		  if(amount>0) {
+			  balance+=amount;
+			  System.out.println("Deposit $ "+amount);
+		  }
+		  else {
+			  System.out.println("invalid amount");
+		  }
+	  }
+	  
+	  public void withdraw(double amount) {
+		  if(amount>0 && amount<=balance) {
+			  balance-=amount;
+			  System.out.println("Withdraw $ "+ balance);
+		  }
+		  else {
+			  System.out.println("Invalid amount or insufficient balance");
+		  }
+	  }
+	  
+	  public void checkbalance() {
+		  System.out.println("Balance Amount $ : " + balance);
+	  }
+	  public void detail() {
+		  System.out.println("Account Holder Name: " + AccountHolderName);
+		  System.out.println("Account Number: " + AccountNumber);
+		  System.out.println("Balance Amount $ : " + balance);
+	  }
+ }
+public class Main {
 
+	public static void main(String[] args) {
+	 Scanner s=new Scanner(System.in);
+	 System.out.println("Enter the Account Holder Name");
+	 String AccountHolderName=s.nextLine();
+	 System.out.println("Enter the Account Number");
+	 String AccountNumber=s.nextLine();
+	 System.out.println("Enter the Initial Balance");
+	 double  balance=s.nextDouble();
+	 BankAccount b=new BankAccount(AccountHolderName,AccountNumber,balance);
+     while(true) {
+    	 System.out.println("\nChoose an operation:");
+         System.out.println("1. Deposit");
+         System.out.println("2. Withdraw");
+         System.out.println("3. Check Balance");
+         System.out.println("4. Account Details");
+         System.out.println("5. Exit");
+         System.out.print("Enter choice: ");
+         int choice = s.nextInt();
+         
+         switch(choice) {
+         case 1:
+        	 System.out.println("Enter the deposit amount");
+        	 double amount=s.nextDouble();
+        	 b.deposit(amount);
+        	 break;
+         
+         case 2:
+        	 System.out.println("Enter the withdraw amount");
+        	 double withdrawamount=s.nextDouble();
+        	 b.deposit(withdrawamount);
+        	 break;
+         
+         case 3:
+        	 b.checkbalance();
+        	 break;
+        
+         case 4:
+        	 b.detail();
+        	 break;
+        	 
+         case 5:
+        	 System.out.println("Thank you");
+        	 return;
+        default:
+        	System.out.println("invalid choice, please Enter valid choice");
+        
+     }
+	}
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the Account Holder Name
+Nanthini
+Enter the Account Number
+957623
+Enter the Initial Balance
+2000
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 1
+Enter the deposit amount
+1000
+Deposit $ 1000.0
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 3
+Balance Amount $ : 3000.0
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 5
+Thank you
 
 ````
