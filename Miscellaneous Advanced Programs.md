@@ -714,10 +714,265 @@ Thank you
 ## 194.Create a dynamic menu-driven program using loops.
 ````java[]
 
+package Nanthu;
+import java.util.*;
+ class BankAccount{
+	  String AccountHolderName;
+	  String AccountNumber;
+	  double balance;
+	  
+	  BankAccount(String AccountHolderName,String AccountNumber,double balance){
+		  this.AccountHolderName=AccountHolderName;
+		  this.AccountNumber=AccountNumber;
+		  this.balance=balance;
+	  }
+	  
+	  public void deposit(double amount) {
+		  if(amount>0) {
+			  balance+=amount;
+			  System.out.println("Deposit $ "+amount);
+		  }
+		  else {
+			  System.out.println("invalid amount");
+		  }
+	  }
+	  
+	  public void withdraw(double amount) {
+		  if(amount>0 && amount<=balance) {
+			  balance-=amount;
+			  System.out.println("Withdraw $ "+ balance);
+		  }
+		  else {
+			  System.out.println("Invalid amount or insufficient balance");
+		  }
+	  }
+	  
+	  public void checkbalance() {
+		  System.out.println("Balance Amount $ : " + balance);
+	  }
+	  public void detail() {
+		  System.out.println("Account Holder Name: " + AccountHolderName);
+		  System.out.println("Account Number: " + AccountNumber);
+		  System.out.println("Balance Amount $ : " + balance);
+	  }
+ }
+public class Main {
+
+	public static void main(String[] args) {
+	 Scanner s=new Scanner(System.in);
+	 System.out.println("Enter the Account Holder Name");
+	 String AccountHolderName=s.nextLine();
+	 System.out.println("Enter the Account Number");
+	 String AccountNumber=s.nextLine();
+	 System.out.println("Enter the Initial Balance");
+	 double  balance=s.nextDouble();
+	 BankAccount b=new BankAccount(AccountHolderName,AccountNumber,balance);
+     while(true) {
+    	 System.out.println("\nChoose an operation:");
+         System.out.println("1. Deposit");
+         System.out.println("2. Withdraw");
+         System.out.println("3. Check Balance");
+         System.out.println("4. Account Details");
+         System.out.println("5. Exit");
+         System.out.print("Enter choice: ");
+         int choice = s.nextInt();
+         
+         switch(choice) {
+         case 1:
+        	 System.out.println("Enter the deposit amount");
+        	 double amount=s.nextDouble();
+        	 b.deposit(amount);
+        	 break;
+         
+         case 2:
+        	 System.out.println("Enter the withdraw amount");
+        	 double withdrawamount=s.nextDouble();
+        	 b.deposit(withdrawamount);
+        	 break;
+         
+         case 3:
+        	 b.checkbalance();
+        	 break;
+        
+         case 4:
+        	 b.detail();
+        	 break;
+        	 
+         case 5:
+        	 System.out.println("Thank you");
+        	 return;
+        default:
+        	System.out.println("invalid choice, please Enter valid choice");
+        
+     }
+	}
+	}
+
+}
+
+
+OUTPUT:
+
+Enter the Account Holder Name
+Nanthini
+Enter the Account Number
+957623
+Enter the Initial Balance
+2000
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 1
+Enter the deposit amount
+1000
+Deposit $ 1000.0
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 3
+Balance Amount $ : 3000.0
+
+Choose an operation:
+1. Deposit
+2. Withdraw
+3. Check Balance
+4. Account Details
+5. Exit
+Enter choice: 5
+Thank you
 
 ````
 ## 195.Implement a Tic-Tac-Toe game with a simple AI.
 ````java[]
+
+
+package Nanthu;
+
+import java.util.Scanner;
+
+public class Main22 {
+    private static char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
+    private static char currentPlayer = 'X';
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        boolean won = false;
+        int moves = 0;
+
+        while (!won && moves < 9) {
+            printBoard();
+            System.out.println("Player " + currentPlayer + ", enter your move (row and column: 0 1 2): ");
+            int row = s.nextInt();
+            int col = s.nextInt();
+
+            if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ') {
+                board[row][col] = currentPlayer;
+                moves++;
+                won = checkWin();
+                if (!won) {
+                    currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+                }
+            } else {
+                System.out.println("Invalid move, try again.");
+            }
+        }
+
+        printBoard();
+        if (won) {
+            System.out.println("Player " + currentPlayer + " wins!");
+        } else {
+            System.out.println("It's a draw!");
+        }
+     
+    }
+
+    private static void printBoard() {
+        System.out.println("\n  0 1 2");
+        for (int i = 0; i < 3; i++) {
+            System.out.print(i + " ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    private static boolean checkWin() {
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == currentPlayer && board[i][1] == currentPlayer && board[i][2] == currentPlayer) return true;
+            if (board[0][i] == currentPlayer && board[1][i] == currentPlayer && board[2][i] == currentPlayer) return true;
+        }
+        if (board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) return true;
+        if (board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer) return true;
+        return false;
+    }
+}
+
+
+OUTPUT:
+
+
+  0 1 2
+0       
+1       
+2       
+Player X, enter your move (row and column: 0 1 2): 
+1
+2
+
+  0 1 2
+0       
+1     X 
+2       
+Player O, enter your move (row and column: 0 1 2): 
+0
+0
+
+  0 1 2
+0 O     
+1     X 
+2       
+Player X, enter your move (row and column: 0 1 2): 
+0
+2
+
+  0 1 2
+0 O   X 
+1     X 
+2       
+Player O, enter your move (row and column: 0 1 2): 
+1
+1
+
+  0 1 2
+0 O   X 
+1   O X 
+2       
+Player X, enter your move (row and column: 0 1 2): 
+1
+0
+
+  0 1 2
+0 O   X 
+1 X O X 
+2       
+Player O, enter your move (row and column: 0 1 2): 
+2
+2
+
+  0 1 2
+0 O   X 
+1 X O X 
+2     O 
+Player O wins!
 
 ````
 ## 196. Build a currency converter program.
